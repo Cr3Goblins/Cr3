@@ -1,92 +1,71 @@
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>My Premium Linktree</title>
+	<meta charset="UTF-8">
+	<title>My Premium Linktree Page</title>
 	<style>
 		body {
-			font-family: sans-serif;
-			background: radial-gradient(circle at center, #4CAF50, #FF00FF);
+			background: radial-gradient(circle at center, #FF00FF, #4CAF50);
 			padding: 20px;
+			font-family: Arial, sans-serif;
 		}
-
-		h1 {
+		.center-icon {
 			text-align: center;
-			margin-bottom: 20px;
-			color: #FFFFFF;
+			padding-top: 50px;
 		}
-
-		.container {
+		.link-box-container {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			align-items: center;
-			margin: 0 -10px;
+			margin-top: 50px;
 		}
-
-		.link {
-			flex-basis: calc(33.33% - 20px);
-			max-width: 200px;
-			margin: 10px;
-			background-color: #FFFFFF;
-			padding: 20px;
-			border-radius: 30px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			text-align: center;
-		}
-
-		.link a {
-			color: #333333;
-			text-decoration: none;
-			font-weight: bold;
-			font-size: 1.2em;
-			display: block;
-			margin-bottom: 10px;
-		}
-
-		.link p {
-			color: #999999;
-			font-size: 0.9em;
-			margin: 0;
-			line-height: 1.4em;
-		}
-
-		.icon {
-			width: 120px;
-			height: 120px;
-			background-image: url("https://i.imgur.com/9LexW1o.jpg");
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			border-radius: 50%;
-			margin: 0 auto 20px;
+		.link-box {
+			width: 200px;
+			height: 200px;
+			margin: 20px;
+			border-radius: 100%;
+			background-color: #333;
 			display: flex;
-			justify-content: center;
+			flex-direction: column;
 			align-items: center;
-			font-size: 3em;
-			color: #FFFFFF;
-			text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			justify-content: center;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			color: #fff;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 20px;
+			font-weight: bold;
+			letter-spacing: 1px;
+			transition: all 0.3s ease-in-out;
+		}
+		.link-box:hover {
+			transform: scale(1.1);
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 		}
 	</style>
+	<script>
+		window.addEventListener('load', function() {
+			var linkBoxes = document.querySelectorAll('.link-box');
+			for (var i = 0; i < linkBoxes.length; i++) {
+				var text = linkBoxes[i].textContent;
+				var fontSize = 20;
+				if (text.length > 8) {
+					fontSize = 14;
+				} else if (text.length > 5) {
+					fontSize = 16;
+				}
+				linkBoxes[i].style.fontSize = fontSize + 'px';
+			}
+		});
+	</script>
 </head>
 <body>
-	<div class="icon">
-		<!-- Custom image goes here -->
+	<div class="center-icon">
+		<img src="https://i.imgur.com/ufRLYwr.png" alt="Your Icon" width="225">
 	</div>
-	<h1>Cr3 Tools</h1>
-	<div class="container">
-		<div class="link">
-			<a href="https://www.instagram.com/420greengoblins/">CR3 TOOLS IG</a>
-			<p>*COMMING SOON*</p>
-		</div>
-		<div class="link">
-			<a href="https://www.instagram.com/420greengoblins/">PERSONAL IG</a>
-			<p>@420greengoblins</p>
-		</div>
-		<div class="link">
-			<a href="https://www.example.com/">SHOP</a>
-			<p>*COMMING SOON*</p>
-		</div>
+	<div class="link-box-container">
+		<a href="https://www.instagram.com/420greengoblins" class="link-box" style="background-color: #d73b3e;">@420greengoblins</a>
+		<a href="https://www.example.com/" class="link-box" style="background-color: #ffc107;">@Cr3Tools *comming soon</a>
+		<a href="#" class="link-box" style="background-color: #5aa9e6;">Shop *comming soon*</a>
 	</div>
 </body>
 </html>
