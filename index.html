@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,7 @@
         body {
             background-color: #b3cce6;
             background-image: url(https://i.imgur.com/uiXvGLI.jpg);
-            background-repeat: repeat;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center center;
             background-size: 100%;
@@ -22,6 +21,7 @@
         .center-icon {
             text-align: center;
             padding-top: 50px;
+            pointer-events: none;
         }
         
         .link-box-container {
@@ -72,14 +72,6 @@
 </head>
 
 <body>
- <style>
- .center-icon {
-    text-align: center;
-    padding-top: 50px;
-    pointer-events: none;
-}
-</style>
-
     <div class="center-icon">
         <img src="https://i.imgur.com/IQIuhUB.png" alt="Your Icon" width="225">
     </div>
@@ -97,11 +89,4 @@
         // Dynamically adjust font size for link boxes based on text length
         window.addEventListener('load', function() {
             var linkBoxes = document.querySelectorAll('.link-box');
-            for (var i = 0; i < linkBoxes.length; i++) {
-                var text = linkBoxes[i].textContent;
-                var fontSize = 20;
-                
-                
-                
-                
-               
+            for (var i = 0; i < linkBoxes.length; i++)
