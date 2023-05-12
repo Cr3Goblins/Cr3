@@ -1,92 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cr3 Tools</title>
-    
-    <!-- CSS Code -->
-    <style>
-        body {
-            background-color: #b3cce6;
-            background-image: url(https://i.imgur.com/uiXvGLI.jpg);
-            background-repeat: repeat;
-            background-attachment: fixed;
-            background-position: center center;
-            background-size: 100%;
-            padding: 20px;
-            font-family: Verdana, serif;
-        }
-        
-        .center-icon {
-            text-align: center;
-            padding-top: 50px;
-            pointer-events: none;
-        }
-        
-        .link-box-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 50px;
-        }
-        
-        .link-box {
-            width: 200px;
-            height: 200px;
-            margin: 20px;
-            border-radius: 100%;
-            background-color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            transition: all 0.3s ease-in-out;
-        }
-        
-        .link-box:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-        
-        .GeneratedMarquee {
-            font-family: monospace;
-            font-size: 2em;
-            text-shadow: 2px 2px #ff0000;
-            line-height: 1.3em;
-            color: #f4fc03;
-            padding: 1.5em;
-        }
-    </style>
-
-    <!-- Banner Code -->
-    <!-- If there is a banner code, put it here -->
-
+	<title>The Michigan Glass Project – Russell Industrial Center Thu Jun 8, 2023 7:00 PM - Sun Jun 11, 2023 11:00 PM EDT</title>
+	<style>
+	     body {
+	       font-family: Arial, sans-serif;
+	       text-align: center;
+	           text-shadow: 2px 2px #ff0000;
+	           color: #00ff00;
+	     }
+	     
+	     h1 {
+	       font-size: 1em;
+	       margin-top: 0;
+	     }
+	     
+	     #timer {
+	       font-size: 2em;
+	     }
+	</style>
+	<title>Cr3 Tools</title>
 </head>
-
 <body>
-    <div class="center-icon">
-        <img src="https://i.imgur.com/IQIuhUB.png" alt="Your Icon" width="225">
-    </div>
-    <div class="link-box-container">
-        <a href="https://www.instagram.com/420greengoblins" class="link-box" style="background-color: #02b2b5;">CR3 IG</a>
-        <a href="https://www.instagram.com/420greengoblins" class="link-box" style="background-color: #9c0357;">@420greengoblins</a>
-        <a href="https://www.instagram.com/420greengoblins" class="link-box" style="background-color: #e65202;">Shop (coming soon)</a>
-    </div>
-
-    <!-- HTML Code -->
-    <marquee class="GeneratedMarquee" direction="right" scrollamount="10" behavior="scroll">SITE UNDER CONSTRUCTION, DM US ON IG FOR TOOLS</marquee>
-
-    <!-- Scripts -->
-    <script>
-        // Dynamically adjust font size for link boxes based on text length
-        window.addEventListener('load', function() {
-            var linkBoxes = document.querySelectorAll('.link-box');
-            for (var i = 0; i < linkBoxes.length; i++)
+	<h1>The Michigan Glass Project – Russell Industrial Center Thu Jun 8, 2023 7:00 PM - Sun Jun 11, 2023 11:00 PM EDT</h1>
+	<div id="timer"></div>
+	<script>
+	     // Set the date to count down to
+	     var countDownDate = new Date("June 09, 2023 07:00:59").getTime();
+	     
+	     // Update the countdown every second
+	     var x = setInterval(function() {
+	       
+	       // Get the current date and time
+	       var now = new Date().getTime();
+	       
+	       // Calculate the distance between now and the count down date
+	       var distance = countDownDate - now;
+	       
+	       // Calculate days, hours, minutes, and seconds
+	       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	       
+	       // Display the countdown
+	       document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+	       + minutes + "m " + seconds + "s ";
+	       
+	       // If the countdown is over, show the message
+	       if (distance < 0) {
+	         clearInterval(x);
+	         document.getElementById("timer").innerHTML = "The Michigan Glass Project – Russell Industrial CenterThu Jun 8, 2023 7:00 PM - Sun Jun 11, 2023 11:00 PM EDT";
+	       }
+	     }, 1000);
+	</script>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport"><!-- CSS Code -->
+	<style>
+	       body {
+	           background-color: #b3cce6;
+	           background-image: url(https://i.imgur.com/uiXvGLI.jpg);
+	           background-repeat: repeat;
+	           background-attachment: fixed;
+	           background-position: center center;
+	           background-size: 100%;
+	           padding: 20px;
+	           font-family: Verdana, serif;
+	       }
+	       
+	       .center-icon {
+	           text-align: center;
+	           padding-top: 50px;
+	           pointer-events: none;
+	       }
+	       
+	       .link-box-container {
+	           display: flex;
+	           flex-wrap: wrap;
+	           justify-content: center;
+	           margin-top: 50px;
+	       }
+	       
+	       .link-box {
+	           width: 200px;
+	           height: 200px;
+	           margin: 20px;
+	           border-radius: 100%;
+	           background-color: #333;
+	           display: flex;
+	           flex-direction: column;
+	           align-items: center;
+	           justify-content: center;
+	           box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	           color: #fff;
+	           text-decoration: none;
+	           text-transform: uppercase;
+	           font-size: 13px;
+	           font-weight: bold;
+	           letter-spacing: 1px;
+	           transition: all 0.3s ease-in-out;
+	       }
+	       
+	       .link-box:hover {
+	           transform: scale(1.1);
+	           box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	       }
+	       
+	       .GeneratedMarquee {
+	           font-family: monospace;
+	           font-size: 2em;
+	           text-shadow: 2px 2px #ff0000;
+	           line-height: 1.3em;
+	           color: #f4fc03;
+	           padding: 1.5em;
+	       }
+	</style><!-- Banner Code -->
+	<!-- If there is a banner code, put it here -->
+	<div class="center-icon"><img alt="Your Icon" src="https://i.imgur.com/IQIuhUB.png" width="225"></div>
+	<div class="link-box-container">
+		<a class="link-box" href="https://www.instagram.com/420greengoblins" style="background-color: #02b2b5;">CR3 IG</a> <a class="link-box" href="https://www.instagram.com/420greengoblins" style="background-color: #9c0357;">@420greengoblins</a> <a class="link-box" href="https://www.instagram.com/420greengoblins" style="background-color: #e65202;">Shop (coming soon)</a>
+	</div><!-- HTML Code -->
+	<marquee behavior="scroll" class="GeneratedMarquee" direction="right" scrollamount="10">SITE UNDER CONSTRUCTION, DM US ON IG FOR TOOLS</marquee> <!-- Scripts -->
+	 
+	<script>
+	       // Dynamically adjust font size for link boxes based on text length
+	       window.addEventListener('load', function() {
+	           var linkBoxes = document.querySelectorAll('.link-box');
+	           for (var i = 0; i < linkBoxes.length; i++)
+	</script>
+</body>
+</html>
