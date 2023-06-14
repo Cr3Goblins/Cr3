@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cr3 Tools</title>
+    <style>
+         body {
+           font-family: 'Trebuchet MS', sans-serif;
+           text-align: center;
+           text-shadow: 2px 2px #000000;
+           color: #fff;
+         }
+         
+         h1 {
+           font-size: 2em;
+           margin-top: 0;
+         }
+         
+         #timer {
+           font-size: 3em;
+         }
+         
+         .WebContainer {
+            width: 100%;
+            min-width: 1000px;
+            height: auto;
+         }
+    </style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+       body {
+           background-color: #b3cce6;
+           background-image: url(https://raw.githubusercontent.com/Cr3Goblins/Cr3/main/BGSquareswebp.webp);
+           background-repeat: repeat;
+           background-attachment: fixed;
+           background-position: center center;
+           background-size: 100%;
+           padding: 20px;
+           font-family: 'Trebuchet MS', sans-serif;
+       }
+       
+       .center-icon {
+           text-align: center;
+           padding-top: 50px;
+           pointer-events: none;
+       }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form method="POST" action="process.php">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br><br>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
