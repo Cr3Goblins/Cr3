@@ -44,24 +44,73 @@
            padding-top: 50px;
            pointer-events: none;
        }
+       
+       .link-box-container {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-top: 50px;
+       }
+       
+       .link-box {
+           width: 300px;
+           height: 80px;
+           margin: 15px;
+           border-radius: 5%;
+           background-color: #333;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+           color: #fff;
+           text-decoration: none;
+           text-transform: uppercase;
+           font-size: 22px;
+           font-weight: bold;
+           letter-spacing: 1px;
+           transition: all 0.3s ease-in-out;
+       }
+       
+       .link-box:hover {
+           transform: scale(1.1);
+           box-shadow: -1px 1px 0px 3px #FFFFFF;
+       }
+       
+       .GeneratedMarquee {
+           font-family: monospace;
+           font-size: 2em;
+           text-shadow: 2px 2px #000000;
+           line-height: 1.3em;
+           color: #fff;
+           padding: 1.5em;
+       }
+       
+       .contact-form {
+           display: flex;
+           justify-content: center;
+           margin-top: 50px;
+       }
     </style>
 </head>
 <body>
-    <h1>Contact Us</h1>
-    <form method="POST" action="https://formspree.io/f/xpzevpaa">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required><br><br>
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea><br><br>
-        
-        <input type="submit" value="Submit">
-    </form>
+    <div class="center-icon"><img alt="Your Icon" src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/main/123Asset%203.webp" width="225"></div>
+    <div class="link-box-container">
+        <a class="link-box" href="https://www.instagram.com/cr3tools" style="background-color: #e61316;">@cr3tools</a>
+        <a class="link-box" href="https://www.instagram.com/420greengoblins" style="background-color: #9c0357;">@420greengoblins</a>
+        <a class="link-box" href="https://www.instagram.com/420greengoblins" style="background-color: #e61316;">Shop (coming soon)</a>
+        <a class="link-box" href="pages/contact.html" style="background-color: #e61316;">Contact Form</a>
+    </div>
+    <marquee behavior="scroll" class="GeneratedMarquee" direction="right" scrollamount="-1">SITE UNDER CONSTRUCTION, DM US ON IG FOR TOOLS</marquee>
+    <script>
+       // Dynamically adjust font size for link boxes based on text length
+       window.addEventListener('load', function() {
+           var linkBoxes = document.querySelectorAll('.link-box');
+           for (var i = 0; i < linkBoxes.length; i++) {
+               var textLength = linkBoxes[i].textContent.length;
+               linkBoxes[i].style.fontSize = textLength > 20 ? '18px' : '22px';
+           }
+       });
+    </script>
 </body>
 </html>
