@@ -19,6 +19,11 @@
            font-size: 3em;
          }
          
+         #timer-title {
+           font-size: 3em;
+           margin-bottom: 10px;
+         }
+         
          .WebContainer {
             width: 100%;
             min-width: 1000px;
@@ -94,6 +99,8 @@
     </style>
 </head>
 <body>
+    <div id="timer-title">2024 MICHIGAN GLASS PROJECT</div>
+    <div id="timer"></div> <!-- Countdown timer will be inserted here -->
     <div class="center-icon"><img alt="Your Icon" src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/main/123Asset%203.webp" width="225"></div>
     <div class="link-box-container">
         <a class="link-box" href="https://www.instagram.com/cr3tools" style="background-color: #e61316;">@cr3tools</a>
@@ -103,14 +110,30 @@
     </div>
     <marquee behavior="scroll" class="GeneratedMarquee" direction="right" scrollamount="-1">SITE UNDER CONSTRUCTION, DM US ON IG FOR TOOLS</marquee>
     <script>
-       // Dynamically adjust font size for link boxes based on text length
-       window.addEventListener('load', function() {
-           var linkBoxes = document.querySelectorAll('.link-box');
-           for (var i = 0; i < linkBoxes.length; i++) {
-               var textLength = linkBoxes[i].textContent.length;
-               linkBoxes[i].style.fontSize = textLength > 20 ? '18px' : '22px';
+       // Countdown timer function
+       function countdown() {
+           var now = new Date();
+           var endDate = new Date("2024-06-21"); // Change this to your desired end date
+           var timeLeft = endDate - now;
+           
+           var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+           var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+           var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+           var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+           
+           document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+           
+           if (timeLeft < 0) {
+               clearInterval(timerInterval);
+               document.getElementById("timer").innerHTML = "EXPIRED";
            }
-       });
+       }
+       
+       // Call the countdown function every second
+       var timerInterval = setInterval(countdown, 1000);
+       
+       // Execute the countdown function immediately on page load
+       countdown();
     </script>
 </body>
 </html>
