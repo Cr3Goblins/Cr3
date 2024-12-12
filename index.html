@@ -10,20 +10,16 @@
         body {
             font-family: 'JetBrains Mono', monospace;
             text-align: center;
-            text-shadow: 2px 2px #000;
             color: #fff;
-            background: #000 url('') center center / cover repeat fixed;
+            background: radial-gradient(circle at center, #e61316 40%, #000);
             padding: 20px;
             margin: 0;
-        }
-
-        #timer-title,
-        #timer {
-            font-size: 3em;
+            overflow-x: hidden;
         }
 
         .center-icon {
             padding-top: 50px;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .link-box-container {
@@ -34,28 +30,47 @@
         }
 
         .link-box {
-            width: 300px;
+            width: 320px;
             height: 80px;
             margin: 15px;
-            border-radius: 5%;
+            border-radius: 12px;
             background-color: #333;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 22px;
             font-weight: bold;
             letter-spacing: 1px;
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, color 0.3s;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        }
+
+        .link-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg) scale(0);
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+        }
+
+        .link-box:hover::before {
+            transform: rotate(45deg) scale(1.5);
         }
 
         .link-box:hover {
-            transform: scale(1.1);
+            transform: translateY(-8px);
             background-color: #fff;
-            box-shadow: -1px 1px 0px 3px #fff;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
             color: #000;
         }
 
@@ -70,15 +85,54 @@
         }
 
         .GeneratedMarquee {
-            font-size: 2em;
+            font-size: 1.5em;
             text-shadow: 2px 2px #000;
             padding: 1.5em;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            animation: glow 1.5s infinite alternate;
         }
 
-        @media (max-width: 1000px) {
+        .GeneratedMarquee span {
+            display: inline-block;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @media (max-width: 768px) {
             .link-box {
-                width: 300px;
-                min-width: 300px;
+                width: 90%;
+                height: 70px;
+                font-size: 18px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
             }
         }
     </style>
@@ -92,9 +146,11 @@
         <a class="link-box" href="https://cr3tools.square.site/">Square Shop</a>
         <a class="link-box" href="pages/contact.html">Contact Form</a>
         <a class="link-box" href="https://www.instagram.com/cr3tools">Instagram: @cr3tools</a>
-        <a class="link-box" href="https://www.instagram.com/420greengoblins">Instagram: personal</a>
+        <a class="link-box" href="https://www.instagram.com/420greengoblins">Instagram: Personal</a>
     </div>
-    <marquee behavior="alternate" class="GeneratedMarquee" direction="right" scrollamount="1">SITE UNDER CONSTRUCTION, DM US ON IG FOR TOOLS</marquee>
+    <marquee behavior="alternate" class="GeneratedMarquee" direction="right" scrollamount="5">
+        <span>SITE UNDER CONSTRUCTION</span>, <span>DM US ON IG FOR TOOLS</span>
+    </marquee>
 </body>
 
 </html>
