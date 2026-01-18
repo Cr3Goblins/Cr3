@@ -4,9 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cr3 Tools</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
+    <title>Cr3 Tools - Coming Soon</title>
+
     <style>
+        /* JetBrains Mono – self-hosted. */
+        @font-face {
+            font-family: 'JetBrains Mono';
+            src: url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/fonts/webfonts/JetBrainsMono-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono';
+            src: url('fonts/JetBrainsMono-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'JetBrains Mono';
+            src: url('fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Basic reset */
         * {
             margin: 0;
             padding: 0;
@@ -17,113 +43,146 @@
             height: 100%;
         }
 
+        /* Page layout and background */
         body {
-            font-family: 'JetBrains Mono', monospace;
+            font-family: 'JetBrains Mono', monospace, sans-serif;
+            background: #000 url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/uiXvGLI.jpeg')
+                        center center / cover fixed no-repeat;
+            color: #e0e0e0;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 2.5rem;
+            padding: 2rem 1rem;
             text-align: center;
-            color: #fff;
-            background: #000 url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/uiXvGLI.jpeg') center center / cover repeat fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            margin: 0;
-            overflow-y: auto;
+            line-height: 1.5;
         }
 
-        .center-icon {
-            padding-top: 50px;
-            animation: fadeIn 1.5s ease-in-out;
+        /* Logo container */
+        .logo-area {
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .link-box-container {
+        .logo-area img {
+            max-width: 240px;
+            height: auto;
+            pointer-events: none;
+            filter: drop-shadow(0 0 12px rgba(230, 19, 22, 0.6));
+        }
+
+        /* Main link stack */
+        .links-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: auto 0;
+            gap: 1.2rem;
+            margin: auto;
         }
 
+        /* Button-style links */
         .link-box {
-            width: 320px;
-            height: 80px;
-            margin: 15px;
-            border-radius: 12px;
-            background-color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 340px;
+            padding: 1.2rem;
+            border-radius: 10px;
+            background-color: #282828;
             color: #fff;
             text-decoration: none;
-            text-transform: uppercase;
-            font-size: 22px;
-            font-weight: bold;
+            font-size: 1.3rem;
+            font-weight: 700;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
+        /* Light swipe effect on hover */
         .link-box::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
+            top: 0;
+            left: -100%;
             width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg) scale(0);
-            transition: transform 0.5s ease;
-            border-radius: 50%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.2),
+                transparent
+            );
+            transition: left 0.6s ease;
         }
 
         .link-box:hover::before {
-            transform: rotate(45deg) scale(1.5);
+            left: 100%;
         }
 
         .link-box:hover {
-            transform: translateY(-8px);
-            background-color: #fff;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
-            color: #000;
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(230,19,22,0.3);
         }
 
-        .link-box:nth-child(1),
-        .link-box:nth-child(2),
-        .link-box:nth-child(3) {
-            background-color: #e61316;
+        /* Individual button colors */
+        .link-box:nth-child(1) { background-color: #e61316; }
+        .link-box:nth-child(2) { background-color: #d01114; }
+        .link-box:nth-child(3) { background-color: #b00e12; }
+        .link-box:nth-child(4) { background-color: #9c0357; }
+
+        /* Footer notice */
+        .construction-notice {
+            font-size: 1.3rem;
+            font-weight: 500;
+            padding: 1.4rem 2rem;
+            background: rgba(20,20,20,0.8);
+            border-radius: 10px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(230,19,22,0.25);
+            max-width: 680px;
+            margin: 0 auto 1.5rem;
+            animation: subtlePulse 2s infinite alternate ease-in-out;
         }
 
-        .link-box:nth-child(4) {
-            background-color: #9c0357;
+        .construction-notice strong {
+            color: #ff4757;
+            font-weight: 800;
         }
 
-        .GeneratedMarquee {
-            font-size: 1.5em;
-            text-shadow: 2px 2px #000;
-            padding: 1.5em;
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 8px;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        .GeneratedMarquee span {
-            display: inline-block;
-            animation: bounce 1s infinite alternate;
-        }
-
-        @media (max-width: 768px) {
-            .link-box {
-                width: 90%;
-                height: 70px;
-                font-size: 18px;
+        /* Honor reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
             }
         }
 
+        /* Small screen adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 0.8rem;
+                gap: 2rem;
+            }
+
+            .logo-area img {
+                max-width: 200px;
+            }
+
+            .link-box {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+
+            .construction-notice {
+                font-size: 1.1rem;
+                padding: 1.2rem 1.5rem;
+            }
+        }
+
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(25px);
             }
             to {
                 opacity: 1;
@@ -131,39 +190,36 @@
             }
         }
 
-        @keyframes glow {
+        @keyframes subtlePulse {
             from {
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                box-shadow: 0 0 8px rgba(230,19,22,0.2);
             }
             to {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
-            }
-        }
-
-        @keyframes bounce {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(-10px);
+                box-shadow: 0 0 16px rgba(230,19,22,0.4);
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="center-icon">
-        <img src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/main/123Asset%203.webp" alt="Your Icon" width="225" style="pointer-events: none;">
-    </div>
-    <div class="link-box-container">
-        <a class="link-box" href="https://cr3tools.bigcartel.com/">Big Cartel</a>
-        <a class="link-box" href="pages/contact.html">Contact Form</a>
-        <a class="link-box" href="https://www.instagram.com/cr3tools">Instagram: @cr3tools</a>
-        <a class="link-box" href="https://www.instagram.com/420greengoblins">Instagram: Personal</a>
-    </div>
-    <marquee behavior="alternate" class="GeneratedMarquee" direction="right" scrollamount="5">
-        <span>SITE UNDER CONSTRUCTION</span>, <span>DM US ON IG FOR TOOLS</span>
-    </marquee>
-</body>
 
+    <header class="logo-area" role="banner">
+        <img src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/main/123Asset%203.webp"
+             alt="Cr3 Tools Logo">
+    </header>
+
+    <main class="links-container" role="main">
+        <a href="https://cr3tools.bigcartel.com/" class="link-box">Big Cartel</a>
+        <a href="pages/contact.html" class="link-box">Contact Form</a>
+        <a href="https://www.instagram.com/cr3tools" class="link-box">Instagram: @cr3tools</a>
+        <a href="https://www.instagram.com/420greengoblins" class="link-box">Instagram: Personal</a>
+    </main>
+
+    <footer class="construction-notice" role="contentinfo">
+        <strong>Site Under Construction</strong><br>
+        Full website coming soon<br>
+        <strong>DM us on our personal Instagram for tools</strong>
+    </footer>
+
+</body>
 </html>
