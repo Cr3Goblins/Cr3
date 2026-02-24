@@ -1,209 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cr3 Tools - Coming Soon</title>
-    <style>
-        /* JetBrains Mono – self-hosted */
-        @font-face {
-            font-family: 'JetBrains Mono';
-            src: url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/fonts/webfonts/JetBrainsMono-Medium.woff2') format('woff2');
-            font-weight: 500;
-            font-style: normal;
-            font-display: swap;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cr3 Tools — Coming Soon</title>
 
-        @font-face {
-            font-family: 'JetBrains Mono';
-            src: url('fonts/JetBrainsMono-Bold.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-        }
+<style>
+:root {
+    --accent-1: #e61316;
+    --accent-2: #d01114;
+    --accent-3: #b00e12;
+    --accent-4: #9c0357;
+    --bg-dark: #000;
+    --text-light: #e0e0e0;
+}
 
-        @font-face {
-            font-family: 'JetBrains Mono';
-            src: url('fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
-            font-weight: 800;
-            font-style: normal;
-            font-display: swap;
-        }
+/* JetBrains Mono */
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("fonts/JetBrainsMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("fonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-display: swap;
+}
 
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html, body {
-            height: 100%;
-        }
+body {
+    min-height: 100vh;
+    font-family: "JetBrains Mono", monospace;
+    background: var(--bg-dark) url("https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/backgrounds/BG2.png") center / cover fixed no-repeat;
+    color: var(--text-light);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 3rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    line-height: 1.5;
+}
 
-        /* Page layout and background */
-        body {
-            font-family: 'JetBrains Mono', monospace, sans-serif;
-            background: #000 url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/backgrounds/BG2.png') center / cover fixed no-repeat;
-            color: #e0e0e0;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-            gap: 3.75rem;
-            padding: 3rem 1.5rem;
-            text-align: center;
-            line-height: 1.5;
-        }
+/* Logo (fixed aspect ratio) */
+.logo {
+    display: block;
+    width: min(360px, 90%);
+    height: auto; /* prevents stretching */
+    margin: 0 auto;
+    filter: drop-shadow(0 0 18px rgba(230,19,22,0.6));
+    animation: fadeIn 1.5s ease-out;
+}
 
-        /* Logo container (now as background) */
-        .logo-area {
-            animation: fadeIn 1.5s ease-out;
-            width: 360px;
-            height: 360px; /* Adjust based on your logo's aspect ratio */
-            margin: 0 auto;
-            background: url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/Logos/CR3%20Logo2026.webp') center / contain no-repeat;
-            pointer-events: none;
-            filter: drop-shadow(0 0 18px rgba(230, 19, 22, 0.6));
-        }
+/* Links */
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
+    margin: auto;
+    width: 100%;
+}
 
-        /* Main link stack */
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.8rem;
-            margin: auto;
-        }
+.link {
+    width: 100%;
+    max-width: 510px;
+    padding: 1.8rem;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform .3s ease, box-shadow .3s ease;
+    box-shadow: 0 6px 22px rgba(0,0,0,.5);
+    position: relative;
+    overflow: hidden;
+}
 
-        /* Button-style links */
-        .link-box {
-            width: 100%;
-            max-width: 510px;
-            padding: 1.8rem;
-            border-radius: 15px;
-            background-color: #282828;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.95rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 6px 22.5px rgba(0,0,0,0.5);
-        }
+/* Hover sweep */
+.link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.2), transparent);
+    transition: transform .6s ease;
+}
+.link:hover::before {
+    transform: translateX(100%);
+}
+.link:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(230,19,22,.3);
+}
 
-        /* Light swipe effect on hover */
-        .link-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
+/* Button colors */
+.link:nth-child(1) { background: var(--accent-1); }
+.link:nth-child(2) { background: var(--accent-2); }
+.link:nth-child(3) { background: var(--accent-3); }
+.link:nth-child(4) { background: var(--accent-4); }
 
-        .link-box:hover::before {
-            left: 100%;
-        }
+/* Footer */
+.notice {
+    font-size: 1.9rem;
+    padding: 2rem 3rem;
+    background: rgba(20,20,20,.8);
+    border-radius: 15px;
+    border: 1px solid rgba(230,19,22,.25);
+    backdrop-filter: blur(12px);
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    animation: pulse 2s infinite alternate ease-in-out;
+}
 
-        .link-box:hover {
-            transform: translateY(-9px);
-            box-shadow: 0 12px 37.5px rgba(230,19,22,0.3);
-        }
+.notice strong {
+    color: #ff4757;
+    font-weight: 800;
+}
 
-        /* Individual button colors */
-        .link-box:nth-child(1) { background-color: #e61316; }
-        .link-box:nth-child(2) { background-color: #d01114; }
-        .link-box:nth-child(3) { background-color: #b00e12; }
-        .link-box:nth-child(4) { background-color: #9c0357; }
+/* Responsive */
+@media (max-width: 720px) {
+    body { padding: 2rem 1rem; gap: 2.5rem; }
+    .link { font-size: 1.6rem; padding: 1.4rem; }
+    .notice { font-size: 1.6rem; padding: 1.6rem 2rem; }
+}
 
-        /* Footer notice */
-        .construction-notice {
-            font-size: 1.95rem;
-            font-weight: 500;
-            padding: 2.1rem 3rem;
-            background: rgba(20,20,20,0.8);
-            border-radius: 15px;
-            backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(230,19,22,0.25);
-            max-width: 1020px;
-            margin: 0 auto 2.25rem;
-            animation: subtlePulse 2s infinite alternate ease-in-out;
-        }
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
 
-        .construction-notice strong {
-            color: #ff4757;
-            font-weight: 800;
-        }
-
-        /* Honor reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-
-        /* Small screen adjustments */
-        @media (max-width: 720px) {
-            body {
-                padding: 1.8rem 1.2rem;
-                gap: 3rem;
-            }
-
-            .logo-area {
-                width: 300px;
-                height: 300px;
-            }
-
-            .link-box {
-                font-size: 1.65rem;
-                padding: 1.5rem;
-            }
-
-            .construction-notice {
-                font-size: 1.65rem;
-                padding: 1.8rem 2.25rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(37.5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes subtlePulse {
-            from { box-shadow: 0 0 12px rgba(230,19,22,0.2); }
-            to { box-shadow: 0 0 24px rgba(230,19,22,0.4); }
-        }
-    </style>
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+    from { box-shadow: 0 0 12px rgba(230,19,22,.2); }
+    to { box-shadow: 0 0 24px rgba(230,19,22,.4); }
+}
+</style>
 </head>
-<body oncontextmenu="return false;">
-    <header class="logo-area" role="banner" aria-label="Cr3 Tools Logo"></header>
 
-    <main class="links-container" role="main">
-        <a href="https://cr3tools.bigcartel.com/" class="link-box">Big Cartel</a>
-        <a href="pages/contact.html" class="link-box">Contact Form</a>
-        <a href="https://www.instagram.com/cr3tools" class="link-box">Instagram: @cr3tools</a>
-        <a href="https://www.instagram.com/420greengoblins" class="link-box">Instagram: Personal</a>
-    </main>
+<body>
 
-    <footer class="construction-notice" role="contentinfo">
-        <strong>Site Under Construction</strong><br>
-        Full website coming soon<br>
-        <strong>DM us on our personal Instagram for tools</strong>
-    </footer>
+<header>
+    <img 
+        src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/Logos/CR3%20Logo2026.webp" 
+        alt="Cr3 Tools Logo" 
+        class="logo">
+</header>
 
-    <script>
-        // Optional: Alert on right-click attempt (remove if annoying)
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            // alert('Right-click is disabled on this site.');
-        });
-    </script>
+<main class="links">
+    <a href="https://cr3tools.bigcartel.com/" class="link">Big Cartel</a>
+    <a href="pages/contact.html" class="link">Contact Form</a>
+    <a href="https://www.instagram.com/cr3tools" class="link">Instagram — @cr3tools</a>
+    <a href="https://www.instagram.com/420greengoblins" class="link">Instagram — Personal</a>
+</main>
+
+<footer class="notice">
+    <strong>Site Under Construction</strong><br>
+    Full website coming soon<br>
+    <strong>DM us on our personal Instagram for tools</strong>
+</footer>
+
+<script>
+document.addEventListener("contextmenu", e => e.preventDefault());
+</script>
+
 </body>
 </html>
