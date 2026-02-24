@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cr3 Tools - Coming Soon</title>
-
     <style>
-        /* JetBrains Mono – self-hosted. */
+        /* JetBrains Mono – self-hosted */
         @font-face {
             font-family: 'JetBrains Mono';
             src: url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/fonts/webfonts/JetBrainsMono-Medium.woff2') format('woff2');
@@ -46,13 +44,12 @@
         /* Page layout and background */
         body {
             font-family: 'JetBrains Mono', monospace, sans-serif;
-            background: #000 url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/backgrounds/BG2.png')
-                        center center / cover fixed no-repeat;
+            background: #000 url('https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/backgrounds/BG2.png') center / cover fixed no-repeat;
             color: #e0e0e0;
             display: grid;
             grid-template-rows: auto 1fr auto;
-            gap: 2.5rem;
-            padding: 2rem 1rem;
+            gap: 3.75rem;
+            padding: 3rem 1.5rem;
             text-align: center;
             line-height: 1.5;
         }
@@ -63,10 +60,10 @@
         }
 
         .logo-area img {
-            max-width: 240px;
+            max-width: 360px;
             height: auto;
             pointer-events: none;
-            filter: drop-shadow(0 0 12px rgba(230, 19, 22, 0.6));
+            filter: drop-shadow(0 0 18px rgba(230, 19, 22, 0.6));
         }
 
         /* Main link stack */
@@ -74,27 +71,27 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.2rem;
+            gap: 1.8rem;
             margin: auto;
         }
 
         /* Button-style links */
         .link-box {
             width: 100%;
-            max-width: 340px;
-            padding: 1.2rem;
-            border-radius: 10px;
+            max-width: 510px;
+            padding: 1.8rem;
+            border-radius: 15px;
             background-color: #282828;
             color: #fff;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.95rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 22.5px rgba(0,0,0,0.5);
         }
 
         /* Light swipe effect on hover */
@@ -105,12 +102,7 @@
             left: -100%;
             width: 200%;
             height: 100%;
-            background: linear-gradient(
-                120deg,
-                transparent,
-                rgba(255,255,255,0.2),
-                transparent
-            );
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.6s ease;
         }
 
@@ -119,8 +111,8 @@
         }
 
         .link-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 25px rgba(230,19,22,0.3);
+            transform: translateY(-9px);
+            box-shadow: 0 12px 37.5px rgba(230,19,22,0.3);
         }
 
         /* Individual button colors */
@@ -131,15 +123,15 @@
 
         /* Footer notice */
         .construction-notice {
-            font-size: 1.3rem;
+            font-size: 1.95rem;
             font-weight: 500;
-            padding: 1.4rem 2rem;
+            padding: 2.1rem 3rem;
             background: rgba(20,20,20,0.8);
-            border-radius: 10px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(230,19,22,0.25);
-            max-width: 680px;
-            margin: 0 auto 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(230,19,22,0.25);
+            max-width: 1020px;
+            margin: 0 auto 2.25rem;
             animation: subtlePulse 2s infinite alternate ease-in-out;
         }
 
@@ -157,55 +149,42 @@
         }
 
         /* Small screen adjustments */
-        @media (max-width: 480px) {
+        @media (max-width: 720px) {
             body {
-                padding: 1.2rem 0.8rem;
-                gap: 2rem;
+                padding: 1.8rem 1.2rem;
+                gap: 3rem;
             }
 
             .logo-area img {
-                max-width: 200px;
+                max-width: 300px;
             }
 
             .link-box {
-                font-size: 1.1rem;
-                padding: 1rem;
+                font-size: 1.65rem;
+                padding: 1.5rem;
             }
 
             .construction-notice {
-                font-size: 1.1rem;
-                padding: 1.2rem 1.5rem;
+                font-size: 1.65rem;
+                padding: 1.8rem 2.25rem;
             }
         }
 
         /* Animations */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(37.5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes subtlePulse {
-            from {
-                box-shadow: 0 0 8px rgba(230,19,22,0.2);
-            }
-            to {
-                box-shadow: 0 0 16px rgba(230,19,22,0.4);
-            }
+            from { box-shadow: 0 0 12px rgba(230,19,22,0.2); }
+            to { box-shadow: 0 0 24px rgba(230,19,22,0.4); }
         }
     </style>
 </head>
-
 <body>
-
     <header class="logo-area" role="banner">
-        <img src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/Logos/CR3%20Logo2026.webp"
-             alt="Cr3 Tools Logo">
+        <img src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/Logos/CR3%20Logo2026.webp" alt="Cr3 Tools Logo">
     </header>
 
     <main class="links-container" role="main">
@@ -220,6 +199,5 @@
         Full website coming soon<br>
         <strong>DM us on our personal Instagram for tools</strong>
     </footer>
-
 </body>
 </html>
