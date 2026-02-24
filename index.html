@@ -15,23 +15,11 @@
     --text-light: #e0e0e0;
 }
 
-/* JetBrains Mono */
+/* Font */
 @font-face {
     font-family: "JetBrains Mono";
     src: url("https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2");
     font-weight: 500;
-    font-display: swap;
-}
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("fonts/JetBrainsMono-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-display: swap;
-}
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("fonts/JetBrainsMono-ExtraBold.woff2") format("woff2");
-    font-weight: 800;
     font-display: swap;
 }
 
@@ -42,71 +30,50 @@
     box-sizing: border-box;
 }
 
+/* Full viewport fit */
 body {
-    min-height: 100vh;
+    min-height: 100dvh; /* modern dynamic viewport */
     font-family: "JetBrains Mono", monospace;
-    background: var(--bg-dark) url("https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/backgrounds/BG2.png") center / cover fixed no-repeat;
+    background: var(--bg-dark) url("https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/backgrounds/BG2.png") center / cover no-repeat;
     color: var(--text-light);
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    gap: 3rem;
-    padding: 3rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: clamp(1rem, 3vw, 3rem);
     text-align: center;
     line-height: 1.5;
 }
 
-/* Logo (fixed aspect ratio) */
+/* Logo */
 .logo {
-    display: block;
-    width: min(360px, 90%);
-    height: auto; /* prevents stretching */
-    margin: 0 auto;
+    width: clamp(180px, 35vw, 360px);
+    height: auto;
     filter: drop-shadow(0 0 18px rgba(230,19,22,0.6));
-    animation: fadeIn 1.5s ease-out;
 }
 
 /* Links */
 .links {
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.8rem;
-    margin: auto;
-    width: 100%;
+    gap: clamp(1rem, 2vw, 1.8rem);
 }
 
 .link {
-    width: 100%;
-    max-width: 510px;
-    padding: 1.8rem;
-    border-radius: 15px;
+    padding: clamp(1rem, 2vw, 1.8rem);
+    border-radius: 14px;
     text-decoration: none;
     color: #fff;
-    font-size: 1.9rem;
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: transform .3s ease, box-shadow .3s ease;
-    box-shadow: 0 6px 22px rgba(0,0,0,.5);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Hover sweep */
-.link::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translateX(-100%);
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,.2), transparent);
-    transition: transform .6s ease;
-}
-.link:hover::before {
-    transform: translateX(100%);
-}
-.link:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 36px rgba(230,19,22,.3);
+    transition: transform .25s ease, box-shadow .25s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,.5);
 }
 
 /* Button colors */
@@ -115,44 +82,29 @@ body {
 .link:nth-child(3) { background: var(--accent-3); }
 .link:nth-child(4) { background: var(--accent-4); }
 
+.link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(230,19,22,.3);
+}
+
 /* Footer */
 .notice {
-    font-size: 1.9rem;
-    padding: 2rem 3rem;
+    font-size: clamp(.9rem, 2vw, 1.4rem);
+    padding: clamp(1rem, 2vw, 2rem);
     background: rgba(20,20,20,.8);
-    border-radius: 15px;
+    border-radius: 14px;
     border: 1px solid rgba(230,19,22,.25);
-    backdrop-filter: blur(12px);
-    max-width: 1000px;
-    margin: 0 auto 2rem;
-    animation: pulse 2s infinite alternate ease-in-out;
+    backdrop-filter: blur(10px);
+    max-width: 700px;
 }
 
 .notice strong {
     color: #ff4757;
-    font-weight: 800;
-}
-
-/* Responsive */
-@media (max-width: 720px) {
-    body { padding: 2rem 1rem; gap: 2.5rem; }
-    .link { font-size: 1.6rem; padding: 1.4rem; }
-    .notice { font-size: 1.6rem; padding: 1.6rem 2rem; }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes pulse {
-    from { box-shadow: 0 0 12px rgba(230,19,22,.2); }
-    to { box-shadow: 0 0 24px rgba(230,19,22,.4); }
+    * { transition: none !important; }
 }
 </style>
 </head>
@@ -162,7 +114,7 @@ body {
 <header>
     <img 
         src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/Logos/CR3%20Logo2026.webp" 
-        alt="Cr3 Tools Logo" 
+        alt="Cr3 Tools Logo"
         class="logo">
 </header>
 
