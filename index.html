@@ -6,14 +6,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cr3 Tools — Coming Soon</title>
-<meta name="description" content="Cr3 Tools - High-quality tools coming soon">
+<title>CR3 Tools — Coming Soon</title>
+
+<meta name="description" content="CR3 Tools - High quality tools coming soon">
 
 <style>
 
-/* -----------------------------
+/* -------------------------
 JETBRAINS MONO
------------------------------ */
+------------------------- */
 
 @font-face{
 font-family:"JetBrains Mono";
@@ -31,7 +32,9 @@ font-style:normal;
 font-display:swap;
 }
 
-/* ----------------------------- */
+/* -------------------------
+RESET
+------------------------- */
 
 *{
 margin:0;
@@ -39,18 +42,23 @@ padding:0;
 box-sizing:border-box;
 }
 
+/* -------------------------
+BODY
+------------------------- */
+
 body{
 
 min-height:100vh;
+
 font-family:"JetBrains Mono", monospace;
 color:#e0e0e0;
 
 display:flex;
 flex-direction:column;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 
-padding:clamp(1.2rem,3vw,3rem);
+padding:clamp(1rem,3vw,3rem);
 
 background:#000;
 
@@ -62,9 +70,9 @@ text-align:center;
 
 }
 
-/* -----------------------------
-LOGO
------------------------------ */
+/* -------------------------
+LOGO AREA
+------------------------- */
 
 .logo-wrap{
 margin-top:clamp(10px,3vh,40px);
@@ -72,17 +80,20 @@ margin-top:clamp(10px,3vh,40px);
 
 /* container */
 
-.logo-wrapper{
+.logo-box{
+
 position:relative;
 display:inline-block;
+
+width:clamp(200px,35vw,380px);
+
 }
 
-/* image */
+/* logo */
 
 .logo{
 
-width:clamp(200px,35vw,380px);
-height:auto;
+width:100%;
 display:block;
 
 pointer-events:none;
@@ -95,18 +106,38 @@ drop-shadow(0 8px 18px rgba(0,0,0,.55));
 
 }
 
-/* -----------------------------
-TOP GLOSS (STATIC)
------------------------------ */
+/* -------------------------
+MASK LAYER
+(this clips everything to logo)
+------------------------- */
 
-.logo-wrapper::before{
+.logo-mask{
 
-content:"";
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
+
+-webkit-mask-image:url("./Logos/CR3 Logo2026.webp");
+-webkit-mask-size:contain;
+-webkit-mask-repeat:no-repeat;
+-webkit-mask-position:center;
+
+mask-image:url("./Logos/CR3 Logo2026.webp");
+mask-size:contain;
+mask-repeat:no-repeat;
+mask-position:center;
+
+pointer-events:none;
+
+}
+
+/* -------------------------
+TOP ENAMEL GLOSS
+------------------------- */
+
+.logo-gloss{
+
+position:absolute;
+inset:0;
 
 background:linear-gradient(
 to bottom,
@@ -116,73 +147,56 @@ rgba(255,255,255,.05) 22%,
 rgba(255,255,255,0) 40%
 );
 
-pointer-events:none;
-
-/* clip to logo */
-
--webkit-mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
-mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
-
 }
 
-/* -----------------------------
-MOVING SHEEN
------------------------------ */
+/* -------------------------
+APPLE STYLE SHEEN
+------------------------- */
 
-.logo-wrapper::after{
+.logo-sheen{
 
-content:"";
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
 
-pointer-events:none;
+top:0;
+bottom:0;
+width:35%;
 
 background:linear-gradient(
 110deg,
 rgba(255,255,255,0) 0%,
-rgba(255,255,255,.35) 45%,
-rgba(255,255,255,.8) 50%,
-rgba(255,255,255,.35) 55%,
+rgba(255,255,255,.4) 40%,
+rgba(255,255,255,.9) 50%,
+rgba(255,255,255,.4) 60%,
 rgba(255,255,255,0) 100%
 );
 
-/* constrain to logo shape */
+transform:translateX(-150%) skewX(-20deg);
 
--webkit-mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
-mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
-
-/* start off screen */
-
-transform:translateX(-180%) skewX(-20deg);
-
-animation:sheen 1.3s ease-out 1;
+animation:sheenMove 1.2s ease-out 1;
 
 }
 
-/* hover trigger */
+/* replay on hover */
 
-.logo-wrapper:hover::after{
-animation:sheen 1.3s ease-out 1;
+.logo-box:hover .logo-sheen{
+animation:sheenMove 1.2s ease-out 1;
 }
 
-@keyframes sheen{
+@keyframes sheenMove{
 
 0%{
-transform:translateX(-180%) skewX(-20deg);
+transform:translateX(-150%) skewX(-20deg);
 }
 
 100%{
-transform:translateX(180%) skewX(-20deg);
+transform:translateX(260%) skewX(-20deg);
 }
 
 }
 
-/* -----------------------------
+/* -------------------------
 LINKS
------------------------------ */
+------------------------- */
 
 .links{
 
@@ -213,9 +227,7 @@ background:#e61316;
 
 border:1px solid rgba(255,255,255,.1);
 
-transition:
-transform .25s ease,
-box-shadow .25s ease;
+transition:transform .25s ease, box-shadow .25s ease;
 
 }
 
@@ -233,9 +245,9 @@ box-shadow:
 
 }
 
-/* -----------------------------
+/* -------------------------
 FOOTER
------------------------------ */
+------------------------- */
 
 .notice{
 
@@ -267,13 +279,21 @@ color:#ff4757;
 
 <header class="logo-wrap">
 
-<div class="logo-wrapper">
+<div class="logo-box">
 
 <img
 src="./Logos/CR3 Logo2026.webp"
 class="logo"
 alt="CR3 Tools Logo"
 draggable="false">
+
+<div class="logo-mask">
+
+<div class="logo-gloss"></div>
+
+<div class="logo-sheen"></div>
+
+</div>
 
 </div>
 
@@ -313,9 +333,9 @@ Full website coming soon<br>
 
 <script>
 
-/* disable right click on logo */
+/* disable right click */
 
-document.querySelector(".logo-wrapper")
+document.querySelector(".logo-box")
 .addEventListener("contextmenu", e => e.preventDefault());
 
 </script>
