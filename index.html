@@ -1,145 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Cr3 Tools - High-quality tools coming soon. Check our shop, contact us, or follow on Instagram.">
+
 <title>Cr3 Tools — Coming Soon</title>
 
+<link rel="preload" as="image" href="/Logos/CR3%20Logo2026.webp">
+
 <style>
-:root {
-    --accent-1: #e61316;
-    --accent-2: #e61316;
-    --accent-3: #e61316;
-    --accent-4: #9c0357;
-    --bg-dark: #000;
-    --text-light: #e0e0e0;
+
+/* =====================
+LOCAL FONT (SELF HOSTED)
+===================== */
+
+@font-face{
+font-family:"JetBrains Mono";
+src:url("/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
+font-weight:400;
+font-style:normal;
+font-display:swap;
 }
 
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-display: swap;
+@font-face{
+font-family:"JetBrains Mono";
+src:url("/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
+font-weight:700;
+font-style:normal;
+font-display:swap;
 }
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =====================
+ROOT VARIABLES
+===================== */
+
+:root{
+
+--accent-primary:#e61316;
+--accent-secondary:#9c0357;
+
+--bg-dark:#000;
+--text-light:#e0e0e0;
+
 }
 
-body {
-    min-height: 100dvh;
-    font-family: "JetBrains Mono", monospace;
-    background: var(--bg-dark) url("https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/backgrounds/BGwp.webp") center / cover no-repeat;
-    color: var(--text-light);
+/* =====================
+RESET
+===================== */
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+*,
+*::before,
+*::after{
 
-    padding: clamp(1rem, 3vw, 3rem);
-    text-align: center;
-    line-height: 1.5;
+margin:0;
+padding:0;
+box-sizing:border-box;
+
 }
 
-/* Logo */
-.logo {
-    width: clamp(180px, 35vw, 360px);
-    height: auto;
-    filter: drop-shadow(0 0 18px rgba(230,19,22,0.6));
+/* =====================
+BODY
+===================== */
 
-    user-select: none;
-    -webkit-user-drag: none;
-    pointer-events: auto;
+body{
+
+min-height:100dvh;
+
+font-family:"JetBrains Mono", monospace;
+
+color:var(--text-light);
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+
+padding:clamp(1rem,3vw,3rem);
+
+text-align:center;
+line-height:1.5;
+
+background-color:var(--bg-dark);
+
+/* FIXED BACKGROUND PATH */
+
+background-image:url("/backgrounds/Bak.webp");
+
+background-position:center;
+background-size:cover;
+background-repeat:no-repeat;
+
+animation:pageEnter 1s ease;
+
 }
 
-/* Links */
-.links {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(1rem, 2vw, 1.8rem);
+/* dark overlay */
+
+body::before{
+
+content:"";
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,.55);
+
+pointer-events:none;
+
 }
 
-.link {
-    padding: clamp(1rem, 2vw, 1.8rem);
-    border-radius: 14px;
-    text-decoration: none;
-    color: #fff;
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform .25s ease, box-shadow .25s ease;
-    box-shadow: 0 6px 20px rgba(0,0,0,.5);
+/* =====================
+PAGE ENTER
+===================== */
+
+@keyframes pageEnter{
+
+from{
+opacity:0;
+transform:translateY(15px);
 }
 
-.link:nth-child(1) { background: var(--accent-1); }
-.link:nth-child(2) { background: var(--accent-2); }
-.link:nth-child(3) { background: var(--accent-3); }
-.link:nth-child(4) { background: var(--accent-4); }
-
-.link:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(230,19,22,.3);
+to{
+opacity:1;
+transform:translateY(0);
 }
 
-.notice {
-    font-size: clamp(.9rem, 2vw, 1.4rem);
-    padding: clamp(1rem, 2vw, 2rem);
-    background: rgba(20,20,20,.8);
-    border-radius: 14px;
-    border: 1px solid rgba(230,19,22,.25);
-    backdrop-filter: blur(10px);
-    max-width: 700px;
 }
 
-.notice strong {
-    color: #ff4757;
+/* =====================
+LOGO AREA
+===================== */
+
+.logo-wrap{
+
+position:relative;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
 }
 
-@media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
+/* animated glow */
+
+.logo-wrap::before{
+
+content:"";
+
+position:absolute;
+
+width:420px;
+height:420px;
+
+background:
+radial-gradient(
+circle,
+rgba(230,19,22,.35) 0%,
+rgba(156,3,87,.25) 40%,
+transparent 70%
+);
+
+filter:blur(60px);
+
+animation:logoAura 6s ease-in-out infinite;
+
+z-index:-1;
+
 }
+
+@keyframes logoAura{
+
+0%,100%{
+transform:scale(1);
+opacity:.8;
+}
+
+50%{
+transform:scale(1.15);
+opacity:1;
+}
+
+}
+
+/* =====================
+LOGO
+===================== */
+
+.logo{
+
+width:clamp(180px,35vw,360px);
+
+filter:drop-shadow(0 0 18px rgba(230,19,22,.6));
+
+user-select:none;
+-webkit-user-drag:none;
+
+animation:logoGlow 5s ease-in-out infinite;
+
+}
+
+@keyframes logoGlow{
+
+0%,100%{
+filter:drop-shadow(0 0 18px rgba(230,19,22,.6))
+}
+
+50%{
+filter:drop-shadow(0 0 36px rgba(230,19,22,.95))
+}
+
+}
+
+/* =====================
+LINK AREA
+===================== */
+
+.links{
+
+width:100%;
+max-width:600px;
+
+display:flex;
+flex-direction:column;
+
+gap:clamp(1rem,2vw,1.8rem);
+
+}
+
+/* =====================
+BUTTONS
+===================== */
+
+.link{
+
+position:relative;
+
+padding:clamp(1rem,2vw,1.8rem);
+
+border-radius:14px;
+
+text-decoration:none;
+
+color:white;
+
+font-size:clamp(1rem,2.5vw,1.6rem);
+
+font-weight:700;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+background:rgba(230,19,22,.85);
+
+backdrop-filter:blur(6px);
+
+border:1px solid rgba(255,255,255,.1);
+
+box-shadow:0 6px 20px rgba(0,0,0,.5);
+
+overflow:hidden;
+
+transition:
+transform .25s ease,
+box-shadow .25s ease,
+background .25s ease;
+
+}
+
+.link.secondary{
+
+background:rgba(156,3,87,.9);
+
+}
+
+.link::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:60%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.35),
+transparent
+);
+
+transform:skewX(-25deg);
+
+transition:left .6s ease;
+
+}
+
+.link:hover::before{
+
+left:140%;
+
+}
+
+.link:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+0 20px 45px rgba(0,0,0,.65),
+0 0 35px rgba(230,19,22,.6);
+
+}
+
+.link:focus-visible{
+
+outline:3px solid white;
+outline-offset:4px;
+
+}
+
+/* =====================
+NOTICE
+===================== */
+
+.notice{
+
+font-size:clamp(.9rem,2vw,1.4rem);
+
+padding:clamp(1rem,2vw,2rem);
+
+background:rgba(20,20,20,.75);
+
+border-radius:14px;
+
+border:1px solid rgba(230,19,22,.25);
+
+backdrop-filter:blur(10px);
+
+max-width:700px;
+
+}
+
+.notice strong{
+
+color:#ff4757;
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-    <img 
-        src="https://raw.githubusercontent.com/Cr3Goblins/Cr3/refs/heads/main/Logos/CR3%20Logo2026.webp" 
-        alt="Cr3 Tools Logo"
-        class="logo"
-        draggable="false"
-        id="logo">
+<header class="logo-wrap">
+
+<img
+src="/Logos/CR3%20Logo2026.webp"
+alt="Cr3 Tools Logo"
+class="logo"
+id="logo"
+draggable="false"
+loading="lazy"
+>
+
 </header>
 
-<main class="links">
-    <a href="https://cr3tools.bigcartel.com/" class="link">Big Cartel</a>
-    <a href="pages/contact.html" class="link">Contact Form</a>
-    <a href="https://www.instagram.com/cr3tools" class="link">Instagram — @cr3tools</a>
-    <a href="https://www.instagram.com/420greengoblins" class="link">Instagram — Personal</a>
+<main>
+
+<nav class="links">
+
+<a href="https://cr3tools.bigcartel.com/" class="link" rel="noopener">
+Big Cartel
+</a>
+
+<a href="/pages/contact.html" class="link">
+Contact Form
+</a>
+
+<a href="https://www.instagram.com/cr3tools" class="link" rel="noopener">
+Instagram — @cr3tools
+</a>
+
+<a href="https://www.instagram.com/420greengoblins" class="link secondary" rel="noopener">
+Instagram — Personal
+</a>
+
+</nav>
+
 </main>
 
 <footer class="notice">
-    <strong>Site Under Construction</strong><br>
-    Full website coming soon<br>
-    <strong>DM us on our personal Instagram for tools</strong>
+
+<strong>Site Under Construction</strong><br>
+Full website coming soon<br>
+<strong>DM us on our personal Instagram for tools</strong>
+
 </footer>
 
-<script>
-const logo = document.getElementById("logo");
-
-
-logo.addEventListener("contextmenu", e => e.preventDefault());
-
-
-logo.addEventListener("dragstart", e => e.preventDefault());
-</script>
-
 </body>
+
 </html>
