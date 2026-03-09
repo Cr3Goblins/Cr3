@@ -9,7 +9,6 @@
 
 <title>Cr3 Tools — Coming Soon</title>
 
-<!-- Preload logo for faster rendering -->
 <link rel="preload" as="image" href="./Logos/CR3%20Logo2026.webp">
 
 <style>
@@ -69,14 +68,13 @@ body {
     text-align: center;
     line-height: 1.5;
 
-    /* Background image and fit */
+    /* Seamless tiled background */
     background-color: var(--bg-dark);
     background-image: url("./backgrounds/TBG.webp");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+    background-position: top left;
+    background-size: auto;
 
-    /* Smooth entrance animation */
     animation: pageEnter 1s ease;
 }
 
@@ -142,7 +140,6 @@ LINKS
     box-shadow: 0 12px 28px rgba(0,0,0,.6), 0 0 20px rgba(230,19,22,.5);
 }
 
-/* Accessibility focus */
 .link:focus-visible {
     outline: 3px solid white;
     outline-offset: 4px;
@@ -180,6 +177,7 @@ RESPONSIVE TWEAKS
     .links a { font-size: 1rem; padding: 0.8rem 1.5rem; }
     .notice { font-size: 1rem; padding: 1rem; }
 }
+
 </style>
 
 </head>
