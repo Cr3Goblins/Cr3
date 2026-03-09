@@ -12,7 +12,7 @@
 <style>
 
 /* -----------------------------
-JETBRAINS MONO (LOCAL)
+JETBRAINS MONO
 ----------------------------- */
 
 @font-face{
@@ -42,7 +42,6 @@ box-sizing:border-box;
 body{
 
 min-height:100vh;
-
 font-family:"JetBrains Mono", monospace;
 color:#e0e0e0;
 
@@ -53,15 +52,13 @@ align-items:center;
 
 padding:clamp(1.2rem,3vw,3rem);
 
-text-align:center;
-line-height:1.5;
-
 background:#000;
 
 background-image:url("./backgrounds/TBG.webp");
 background-repeat:repeat;
 background-position:center;
-background-size:auto;
+
+text-align:center;
 
 }
 
@@ -73,14 +70,17 @@ LOGO
 margin-top:clamp(10px,3vh,40px);
 }
 
+/* container */
+
 .logo-wrapper{
 position:relative;
 display:inline-block;
 }
 
-/* disable interaction */
+/* image */
 
 .logo{
+
 width:clamp(200px,35vw,380px);
 height:auto;
 display:block;
@@ -96,88 +96,86 @@ drop-shadow(0 8px 18px rgba(0,0,0,.55));
 }
 
 /* -----------------------------
-TOP GLOSS
+TOP GLOSS (STATIC)
 ----------------------------- */
 
 .logo-wrapper::before{
 
 content:"";
 position:absolute;
-inset:0;
+top:0;
+left:0;
+width:100%;
+height:100%;
 
 background:linear-gradient(
 to bottom,
 rgba(255,255,255,.28) 0%,
 rgba(255,255,255,.15) 12%,
 rgba(255,255,255,.05) 22%,
-rgba(255,255,255,0) 38%
+rgba(255,255,255,0) 40%
 );
 
--webkit-mask-image:url("./Logos/CR3 Logo2026.webp");
--webkit-mask-size:contain;
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
-
-mask-image:url("./Logos/CR3 Logo2026.webp");
-mask-size:contain;
-mask-repeat:no-repeat;
-mask-position:center;
-
 pointer-events:none;
+
+/* clip to logo */
+
+-webkit-mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
+mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
 
 }
 
 /* -----------------------------
-SHEEN SWEEP
+MOVING SHEEN
 ----------------------------- */
 
 .logo-wrapper::after{
 
 content:"";
 position:absolute;
-inset:0;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+pointer-events:none;
 
 background:linear-gradient(
 110deg,
 rgba(255,255,255,0) 0%,
 rgba(255,255,255,.35) 45%,
-rgba(255,255,255,.75) 50%,
+rgba(255,255,255,.8) 50%,
 rgba(255,255,255,.35) 55%,
 rgba(255,255,255,0) 100%
 );
 
--webkit-mask-image:url("./Logos/CR3 Logo2026.webp");
--webkit-mask-size:contain;
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
+/* constrain to logo shape */
 
-mask-image:url("./Logos/CR3 Logo2026.webp");
-mask-size:contain;
-mask-repeat:no-repeat;
-mask-position:center;
+-webkit-mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
+mask:url("./Logos/CR3 Logo2026.webp") center/contain no-repeat;
 
-transform:translateX(-160%) skewX(-20deg);
+/* start off screen */
 
-pointer-events:none;
+transform:translateX(-180%) skewX(-20deg);
 
-animation:sheenSweep 1.4s ease-out 1;
+animation:sheen 1.3s ease-out 1;
 
 }
 
 /* hover trigger */
 
 .logo-wrapper:hover::after{
-animation:sheenSweep 1.4s ease-out 1;
+animation:sheen 1.3s ease-out 1;
 }
 
-@keyframes sheenSweep{
+@keyframes sheen{
 
 0%{
-transform:translateX(-160%) skewX(-20deg);
+transform:translateX(-180%) skewX(-20deg);
 }
 
 100%{
-transform:translateX(160%) skewX(-20deg);
+transform:translateX(180%) skewX(-20deg);
 }
 
 }
@@ -203,7 +201,6 @@ margin-top:clamp(30px,5vh,60px);
 .link{
 
 padding:1rem 1.6rem;
-
 border-radius:14px;
 
 text-decoration:none;
