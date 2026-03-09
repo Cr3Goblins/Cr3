@@ -15,7 +15,7 @@
 <style>
 
 /* -----------------------------
-JETBRAINS MONO (local GitHub)
+JETBRAINS MONO
 ----------------------------- */
 
 @font-face{
@@ -78,7 +78,7 @@ line-height:1.5;
 
 background-color:#000;
 
-/* seamless repeating background */
+/* seamless repeat */
 
 background-image:url("./backgrounds/TBG.webp");
 background-repeat:repeat;
@@ -98,11 +98,12 @@ align-items:center;
 margin-top:clamp(10px,3vh,40px);
 }
 
-/* wrapper for sheen effect */
+/* sheen container */
 
 .logo-wrapper{
 position:relative;
 display:inline-block;
+overflow:hidden; /* restrict sheen to logo */
 }
 
 /* -----------------------------
@@ -114,17 +115,17 @@ LOGO
 width:clamp(200px,35vw,380px);
 height:auto;
 
+display:block;
+
 filter:drop-shadow(0 0 18px rgba(230,19,22,.6));
 
 user-select:none;
 -webkit-user-drag:none;
 
-display:block;
-
 }
 
 /* -----------------------------
-CANDY SHEEN EFFECT
+CANDY SHEEN
 ----------------------------- */
 
 .logo-wrapper::after{
@@ -133,9 +134,9 @@ content:"";
 position:absolute;
 
 top:0;
-left:-150%;
+left:-120%;
 
-width:80%;
+width:120%;
 height:100%;
 
 background:linear-gradient(
@@ -158,21 +159,21 @@ pointer-events:none;
 @keyframes sheenMove{
 
 0%{
-left:-150%;
+left:-120%;
 }
 
 60%{
-left:160%;
+left:120%;
 }
 
 100%{
-left:160%;
+left:120%;
 }
 
 }
 
 /* -----------------------------
-LINK SECTION
+LINKS
 ----------------------------- */
 
 .links{
@@ -190,7 +191,7 @@ margin-top:clamp(30px,5vh,60px);
 }
 
 /* -----------------------------
-BUTTON STYLE
+BUTTONS
 ----------------------------- */
 
 .link{
@@ -213,18 +214,13 @@ border:1px solid rgba(255,255,255,.1);
 
 transition:
 transform .25s ease,
-box-shadow .25s ease,
-background .25s ease;
+box-shadow .25s ease;
 
 }
-
-/* secondary button */
 
 .link.secondary{
 background:rgba(156,3,87,.9);
 }
-
-/* hover */
 
 .link:hover{
 
@@ -237,7 +233,7 @@ box-shadow:
 }
 
 /* -----------------------------
-FOOTER NOTICE
+FOOTER
 ----------------------------- */
 
 .notice{
