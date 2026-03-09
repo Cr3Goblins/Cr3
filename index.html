@@ -6,350 +6,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Cr3 Tools - High-quality tools coming soon. Check our shop, contact us, or follow on Instagram.">
-
-<title>Cr3 Tools — Coming Soon</title>
-
-<link rel="preload" as="image" href="/Logos/CR3%20Logo2026.webp">
+<title>CR3</title>
 
 <style>
 
-/* =====================
-LOCAL FONT (SELF HOSTED)
-===================== */
+/* fonts */
 
 @font-face{
 font-family:"JetBrains Mono";
 src:url("/fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
-font-weight:400;
-font-style:normal;
-font-display:swap;
 }
 
 @font-face{
 font-family:"JetBrains Mono";
 src:url("/fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
-font-weight:700;
-font-style:normal;
-font-display:swap;
+font-weight:bold;
 }
 
-/* =====================
-ROOT VARIABLES
-===================== */
-
-:root{
-
---accent-primary:#e61316;
---accent-secondary:#9c0357;
-
---bg-dark:#000;
---text-light:#e0e0e0;
-
-}
-
-/* =====================
-RESET
-===================== */
-
-*,
-*::before,
-*::after{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
-}
-
-/* =====================
-BODY
-===================== */
+/* page */
 
 body{
 
-min-height:100dvh;
+margin:0;
+min-height:100vh;
 
 font-family:"JetBrains Mono", monospace;
-
-color:var(--text-light);
+color:white;
 
 display:flex;
 flex-direction:column;
-justify-content:space-between;
-align-items:center;
-
-padding:clamp(1rem,3vw,3rem);
-
-text-align:center;
-line-height:1.5;
-
-background-color:var(--bg-dark);
-
-/* FIXED BACKGROUND PATH */
-
-background-image:url("/backgrounds/Bak.webp");
-
-background-position:center;
-background-size:cover;
-background-repeat:no-repeat;
-
-animation:pageEnter 1s ease;
-
-}
-
-/* dark overlay */
-
-body::before{
-
-content:"";
-position:fixed;
-inset:0;
-
-background:rgba(0,0,0,.55);
-
-pointer-events:none;
-
-}
-
-/* =====================
-PAGE ENTER
-===================== */
-
-@keyframes pageEnter{
-
-from{
-opacity:0;
-transform:translateY(15px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* =====================
-LOGO AREA
-===================== */
-
-.logo-wrap{
-
-position:relative;
-
-display:flex;
 justify-content:center;
 align-items:center;
 
-}
-
-/* animated glow */
-
-.logo-wrap::before{
-
-content:"";
-
-position:absolute;
-
-width:420px;
-height:420px;
-
-background:
-radial-gradient(
-circle,
-rgba(230,19,22,.35) 0%,
-rgba(156,3,87,.25) 40%,
-transparent 70%
-);
-
-filter:blur(60px);
-
-animation:logoAura 6s ease-in-out infinite;
-
-z-index:-1;
+background-image:url("/backgrounds/Bak.webp");
+background-size:cover;
+background-position:center;
 
 }
 
-@keyframes logoAura{
-
-0%,100%{
-transform:scale(1);
-opacity:.8;
-}
-
-50%{
-transform:scale(1.15);
-opacity:1;
-}
-
-}
-
-/* =====================
-LOGO
-===================== */
+/* logo */
 
 .logo{
 
-width:clamp(180px,35vw,360px);
-
-filter:drop-shadow(0 0 18px rgba(230,19,22,.6));
-
-user-select:none;
--webkit-user-drag:none;
-
-animation:logoGlow 5s ease-in-out infinite;
+width:280px;
+margin-bottom:40px;
 
 }
 
-@keyframes logoGlow{
-
-0%,100%{
-filter:drop-shadow(0 0 18px rgba(230,19,22,.6))
-}
-
-50%{
-filter:drop-shadow(0 0 36px rgba(230,19,22,.95))
-}
-
-}
-
-/* =====================
-LINK AREA
-===================== */
+/* links */
 
 .links{
-
-width:100%;
-max-width:600px;
-
 display:flex;
 flex-direction:column;
-
-gap:clamp(1rem,2vw,1.8rem);
-
+gap:20px;
 }
 
-/* =====================
-BUTTONS
-===================== */
-
-.link{
-
-position:relative;
-
-padding:clamp(1rem,2vw,1.8rem);
-
-border-radius:14px;
+.links a{
 
 text-decoration:none;
-
 color:white;
 
-font-size:clamp(1rem,2.5vw,1.6rem);
+padding:14px 26px;
 
-font-weight:700;
+background:#e61316;
 
-letter-spacing:1px;
+border-radius:10px;
 
-text-transform:uppercase;
-
-background:rgba(230,19,22,.85);
-
-backdrop-filter:blur(6px);
-
-border:1px solid rgba(255,255,255,.1);
-
-box-shadow:0 6px 20px rgba(0,0,0,.5);
-
-overflow:hidden;
-
-transition:
-transform .25s ease,
-box-shadow .25s ease,
-background .25s ease;
-
-}
-
-.link.secondary{
-
-background:rgba(156,3,87,.9);
-
-}
-
-.link::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-120%;
-
-width:60%;
-height:100%;
-
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,.35),
-transparent
-);
-
-transform:skewX(-25deg);
-
-transition:left .6s ease;
-
-}
-
-.link:hover::before{
-
-left:140%;
-
-}
-
-.link:hover{
-
-transform:translateY(-6px);
-
-box-shadow:
-0 20px 45px rgba(0,0,0,.65),
-0 0 35px rgba(230,19,22,.6);
-
-}
-
-.link:focus-visible{
-
-outline:3px solid white;
-outline-offset:4px;
-
-}
-
-/* =====================
-NOTICE
-===================== */
-
-.notice{
-
-font-size:clamp(.9rem,2vw,1.4rem);
-
-padding:clamp(1rem,2vw,2rem);
-
-background:rgba(20,20,20,.75);
-
-border-radius:14px;
-
-border:1px solid rgba(230,19,22,.25);
-
-backdrop-filter:blur(10px);
-
-max-width:700px;
-
-}
-
-.notice strong{
-
-color:#ff4757;
+font-weight:bold;
 
 }
 
@@ -359,50 +82,17 @@ color:#ff4757;
 
 <body>
 
-<header class="logo-wrap">
+<img src="/Logos/CR3%20Logo2026.webp" class="logo">
 
-<img
-src="/Logos/CR3%20Logo2026.webp"
-alt="Cr3 Tools Logo"
-class="logo"
-id="logo"
-draggable="false"
-loading="lazy"
->
+<div class="links">
 
-</header>
+<a href="https://cr3tools.bigcartel.com/">Shop</a>
 
-<main>
+<a href="/pages/contact.html">Contact</a>
 
-<nav class="links">
+<a href="https://instagram.com/cr3tools">Instagram</a>
 
-<a href="https://cr3tools.bigcartel.com/" class="link" rel="noopener">
-Big Cartel
-</a>
-
-<a href="/pages/contact.html" class="link">
-Contact Form
-</a>
-
-<a href="https://www.instagram.com/cr3tools" class="link" rel="noopener">
-Instagram — @cr3tools
-</a>
-
-<a href="https://www.instagram.com/420greengoblins" class="link secondary" rel="noopener">
-Instagram — Personal
-</a>
-
-</nav>
-
-</main>
-
-<footer class="notice">
-
-<strong>Site Under Construction</strong><br>
-Full website coming soon<br>
-<strong>DM us on our personal Instagram for tools</strong>
-
-</footer>
+</div>
 
 </body>
 
