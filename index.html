@@ -5,6 +5,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="description" content="Cr3 Tools - High-quality tools coming soon.">
 
 <title>Cr3 Tools — Coming Soon</title>
@@ -13,11 +14,11 @@
 
 <style>
 
-/* =====================
-FONTS
-===================== */
+/* -----------------------------
+JETBRAINS MONO (local GitHub)
+----------------------------- */
 
-@font-face {
+@font-face{
 font-family:"JetBrains Mono";
 src:url("./fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
 font-weight:400;
@@ -25,7 +26,7 @@ font-style:normal;
 font-display:swap;
 }
 
-@font-face {
+@font-face{
 font-family:"JetBrains Mono";
 src:url("./fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
 font-weight:700;
@@ -33,9 +34,9 @@ font-style:normal;
 font-display:swap;
 }
 
-/* =====================
-ROOT
-===================== */
+/* -----------------------------
+ROOT COLORS
+----------------------------- */
 
 :root{
 --accent-primary:#e61316;
@@ -44,9 +45,9 @@ ROOT
 --text-light:#e0e0e0;
 }
 
-/* =====================
+/* -----------------------------
 RESET
-===================== */
+----------------------------- */
 
 *{
 margin:0;
@@ -54,16 +55,15 @@ padding:0;
 box-sizing:border-box;
 }
 
-/* =====================
+/* -----------------------------
 BODY
-===================== */
+----------------------------- */
 
 body{
 
 min-height:100vh;
 
 font-family:"JetBrains Mono", monospace;
-
 color:var(--text-light);
 
 display:flex;
@@ -71,147 +71,109 @@ flex-direction:column;
 justify-content:space-between;
 align-items:center;
 
-padding:clamp(1rem,3vw,3rem);
+padding:clamp(1.2rem,3vw,3rem);
 
 text-align:center;
 line-height:1.5;
 
-background-color:var(--bg-dark);
+background-color:#000;
+
+/* seamless repeating background */
+
 background-image:url("./backgrounds/TBG.webp");
 background-repeat:repeat;
-background-position:top left;
+background-position:center;
 background-size:auto;
 
-animation:pageEnter 1s ease;
-
 }
 
-/* =====================
-PAGE ENTER
-===================== */
-
-@keyframes pageEnter{
-
-from{
-opacity:0;
-transform:translateY(15px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* =====================
+/* -----------------------------
 LOGO AREA
-===================== */
+----------------------------- */
 
 .logo-wrap{
-
 display:flex;
 justify-content:center;
 align-items:center;
-
-margin-bottom:clamp(2rem,5vw,4rem);
-
-position:relative;
-
+margin-top:clamp(10px,3vh,40px);
 }
 
-/* =====================
+/* wrapper for sheen effect */
+
+.logo-wrapper{
+position:relative;
+display:inline-block;
+}
+
+/* -----------------------------
 LOGO
-===================== */
+----------------------------- */
 
 .logo{
 
-width:clamp(180px,35vw,360px);
+width:clamp(200px,35vw,380px);
+height:auto;
 
-filter:drop-shadow(0 0 24px rgba(230,19,22,.8));
+filter:drop-shadow(0 0 18px rgba(230,19,22,.6));
 
 user-select:none;
 -webkit-user-drag:none;
 
-cursor:pointer;
-
-position:relative;
+display:block;
 
 }
 
-/* =====================
+/* -----------------------------
 CANDY SHEEN EFFECT
-===================== */
+----------------------------- */
 
-.logo-wrap::after{
+.logo-wrapper::after{
 
 content:"";
-
 position:absolute;
 
 top:0;
-left:-120%;
+left:-150%;
 
-width:40%;
+width:80%;
 height:100%;
 
 background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,.5),
-transparent
+110deg,
+rgba(255,255,255,0) 0%,
+rgba(255,255,255,0.35) 45%,
+rgba(255,255,255,0.65) 50%,
+rgba(255,255,255,0.35) 55%,
+rgba(255,255,255,0) 100%
 );
 
-transform:skewX(-25deg);
+transform:skewX(-20deg);
+
+animation:sheenMove 6s infinite;
 
 pointer-events:none;
 
 }
 
-/* animate sheen on hover */
+@keyframes sheenMove{
 
-.logo-wrap:hover::after{
-
-animation:sheenSweep 1s ease;
-
+0%{
+left:-150%;
 }
 
-@keyframes sheenSweep{
-
-from{
-left:-120%;
+60%{
+left:160%;
 }
 
-to{
-left:140%;
+100%{
+left:160%;
 }
 
 }
 
-/* =====================
-JIGGLE ANIMATION
-===================== */
-
-@keyframes jiggle{
-
-0%{transform:rotate(0deg);}
-20%{transform:rotate(-3deg);}
-40%{transform:rotate(3deg);}
-60%{transform:rotate(-2deg);}
-80%{transform:rotate(2deg);}
-100%{transform:rotate(0deg);}
-
-}
-
-.logo.jiggle{
-
-animation:jiggle .45s ease;
-
-}
-
-/* =====================
-LINKS
-===================== */
+/* -----------------------------
+LINK SECTION
+----------------------------- */
 
 .links{
 
@@ -221,17 +183,19 @@ max-width:600px;
 display:flex;
 flex-direction:column;
 
-gap:clamp(1rem,2vw,1.8rem);
+gap:1.2rem;
+
+margin-top:clamp(30px,5vh,60px);
 
 }
 
-/* =====================
-BUTTONS
-===================== */
+/* -----------------------------
+BUTTON STYLE
+----------------------------- */
 
 .link{
 
-padding:clamp(.9rem,1.8vw,1.6rem) clamp(1.5rem,3vw,2.2rem);
+padding:1rem 1.6rem;
 
 border-radius:14px;
 
@@ -239,62 +203,58 @@ text-decoration:none;
 
 color:white;
 
-font-size:clamp(1rem,2.2vw,1.5rem);
+font-size:clamp(1rem,2.5vw,1.4rem);
 
 font-weight:700;
 
-letter-spacing:1px;
-
-text-transform:uppercase;
-
-background:var(--accent-primary);
+background:rgba(230,19,22,.9);
 
 border:1px solid rgba(255,255,255,.1);
 
-box-shadow:0 6px 20px rgba(0,0,0,.5);
-
-transition:transform .25s ease, box-shadow .25s ease;
+transition:
+transform .25s ease,
+box-shadow .25s ease,
+background .25s ease;
 
 }
+
+/* secondary button */
 
 .link.secondary{
-background:var(--accent-secondary);
+background:rgba(156,3,87,.9);
 }
+
+/* hover */
 
 .link:hover{
 
 transform:translateY(-4px);
 
 box-shadow:
-0 12px 28px rgba(0,0,0,.6),
-0 0 20px rgba(230,19,22,.5);
+0 10px 30px rgba(0,0,0,.6),
+0 0 25px rgba(230,19,22,.5);
 
 }
 
-.link:focus-visible{
-
-outline:3px solid white;
-outline-offset:4px;
-
-}
-
-/* =====================
-NOTICE
-===================== */
+/* -----------------------------
+FOOTER NOTICE
+----------------------------- */
 
 .notice{
 
-font-size:clamp(.9rem,2vw,1.4rem);
+font-size:clamp(.9rem,2vw,1.2rem);
 
-padding:clamp(1rem,2vw,2rem);
+padding:1.4rem;
 
-background:rgba(20,20,20,.75);
+background:rgba(20,20,20,.65);
 
 border-radius:14px;
 
 border:1px solid rgba(230,19,22,.25);
 
 max-width:700px;
+
+margin-top:clamp(40px,6vh,70px);
 
 }
 
@@ -310,13 +270,15 @@ color:#ff4757;
 
 <header class="logo-wrap">
 
+<div class="logo-wrapper">
+
 <img
 src="./Logos/CR3%20Logo2026.webp"
 alt="Cr3 Tools Logo"
 class="logo"
-id="logo"
-draggable="false"
->
+draggable="false">
+
+</div>
 
 </header>
 
@@ -352,26 +314,6 @@ Full website coming soon<br>
 
 </footer>
 
-<script>
-
-/* =====================
-LOGO JIGGLE
-===================== */
-
-const logo = document.getElementById("logo");
-
-logo.addEventListener("click", () => {
-
-logo.classList.remove("jiggle");
-
-/* restart animation */
-void logo.offsetWidth;
-
-logo.classList.add("jiggle");
-
-});
-
-</script>
-
 </body>
+
 </html>
