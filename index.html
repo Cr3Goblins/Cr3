@@ -1,38 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CR3 Tools — Coming Soon</title>
-<meta name="description" content="CR3 Tools - High quality tools coming soon">
+<title>CR3</title>
 
 <style>
 
 /* -------------------------
-JETBRAINS MONO
+JETBRAINS FONT (LOCAL)
 ------------------------- */
 
-@font-face{
-font-family:"JetBrains Mono";
-src:url("./fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
-font-weight:400;
-font-style:normal;
-font-display:swap;
-}
-
-@font-face{
-font-family:"JetBrains Mono";
-src:url("./fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
-font-weight:700;
-font-style:normal;
-font-display:swap;
+@font-face {
+    font-family: 'JetBrainsMono';
+    src: url('/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* -------------------------
-RESET
+GLOBAL RESET
 ------------------------- */
 
 *{
@@ -41,318 +29,265 @@ padding:0;
 box-sizing:border-box;
 }
 
+html,body{
+height:100%;
+font-family:'JetBrainsMono', monospace;
+color:white;
+overflow-x:hidden;
+}
+
 /* -------------------------
-BODY
+BACKGROUND
 ------------------------- */
 
 body{
 
-min-height:100vh;
-
-font-family:"JetBrains Mono", monospace;
-color:#e0e0e0;
+background-image:url("/images/background.png");
+background-repeat:repeat;
+background-size:auto;
+background-position:top left;
 
 display:flex;
-flex-direction:column;
 align-items:center;
-justify-content:space-between;
+justify-content:center;
+}
 
-padding:clamp(1rem,3vw,3rem);
+/* -------------------------
+LAYOUT
+------------------------- */
 
-background:#000;
-
-background-image:url("./backgrounds/TBG.webp");
-background-repeat:repeat;
-
-background-position:center;
+.container{
 
 text-align:center;
+padding:40px;
 
-transition:background-position .2s linear;
-
-}
-
-/* -------------------------
-LOGO AREA
-------------------------- */
-
-.logo-wrap{
-margin-top:clamp(10px,3vh,40px);
-}
-
-.logo-box{
-
-position:relative;
-display:inline-block;
-
-width:clamp(200px,35vw,380px);
-
-}
-
-/* -------------------------
-LOGO
-------------------------- */
-
-.logo{
-
+max-width:900px;
 width:100%;
-display:block;
-
-pointer-events:none;
-user-select:none;
--webkit-user-drag:none;
-
-filter:
-drop-shadow(0 0 18px rgba(230,19,22,.55))
-drop-shadow(0 8px 18px rgba(0,0,0,.55));
-
-transition:filter .2s ease;
-
 }
 
 /* -------------------------
-MASK LAYER
+LOGO WRAPPER
+Constrains sheen
 ------------------------- */
 
 .logo-mask{
 
-position:absolute;
-inset:0;
+display:inline-block;
+position:relative;
 
--webkit-mask-image:url("./Logos/CR3 Logo2026.webp");
--webkit-mask-size:contain;
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
+overflow:hidden;
+}
 
-mask-image:url("./Logos/CR3 Logo2026.webp");
-mask-size:contain;
-mask-repeat:no-repeat;
-mask-position:center;
+/* -------------------------
+LOGO IMAGE
+------------------------- */
+
+.logo{
+
+width:clamp(220px,40vw,420px);
+height:auto;
 
 pointer-events:none;
+user-select:none;
 
 }
 
 /* -------------------------
-ENAMEL GLOSS
+SHEEN EFFECT
 ------------------------- */
 
-.logo-gloss{
+.logo-mask::after{
 
-position:absolute;
-inset:0;
-
-background:linear-gradient(
-to bottom,
-rgba(255,255,255,.28) 0%,
-rgba(255,255,255,.15) 12%,
-rgba(255,255,255,.05) 22%,
-rgba(255,255,255,0) 40%
-);
-
-}
-
-/* -------------------------
-SHEEN SWEEP
-------------------------- */
-
-.logo-sheen{
+content:"";
 
 position:absolute;
 
 top:0;
-bottom:0;
+left:-200%;
 
-width:35%;
+width:120%;
+height:100%;
 
 background:linear-gradient(
-110deg,
+120deg,
 rgba(255,255,255,0) 0%,
-rgba(255,255,255,.4) 40%,
-rgba(255,255,255,.95) 50%,
-rgba(255,255,255,.4) 60%,
+rgba(255,255,255,0.35) 50%,
 rgba(255,255,255,0) 100%
 );
 
-transform:translateX(-150%) skewX(-20deg);
+transform:skewX(-25deg);
 
-animation:sheenMove 1.2s ease-out 1;
+opacity:0;
 
 }
 
-.logo-box:hover .logo-sheen{
-animation:sheenMove 1.2s ease-out 1;
-}
+/* sheen animation */
 
-@keyframes sheenMove{
+@keyframes sheen{
 
 0%{
-transform:translateX(-150%) skewX(-20deg);
+left:-200%;
+opacity:0;
+}
+
+15%{
+opacity:1;
+}
+
+50%{
+left:200%;
+opacity:0;
 }
 
 100%{
-transform:translateX(260%) skewX(-20deg);
+left:200%;
+opacity:0;
 }
+
+}
+
+/* run on hover */
+
+.logo-mask:hover::after{
+
+animation:sheen 1.1s ease;
+
+}
+
+/* run on page load */
+
+.logo-mask.sheen-once::after{
+
+animation:sheen 1.3s ease;
+
+}
+
+/* subtle periodic shimmer */
+
+.logo-mask.sheen-idle::after{
+
+animation:sheen 1.3s ease;
 
 }
 
 /* -------------------------
-LINKS
+LINK SECTION
 ------------------------- */
 
 .links{
 
-width:100%;
-max-width:600px;
+margin-top:40px;
 
 display:flex;
-flex-direction:column;
+flex-wrap:wrap;
 
-gap:1.2rem;
-
-margin-top:clamp(30px,5vh,60px);
+justify-content:center;
+gap:16px;
 
 }
 
-.link{
+/* link buttons */
 
-padding:1rem 1.6rem;
-border-radius:14px;
+.links a{
 
 text-decoration:none;
 color:white;
 
-font-size:clamp(1rem,2.5vw,1.4rem);
-font-weight:700;
+border:1px solid rgba(255,255,255,0.3);
 
-background:#e61316;
+padding:10px 18px;
 
-border:1px solid rgba(255,255,255,.1);
+border-radius:6px;
 
-transition:transform .25s ease, box-shadow .25s ease;
+transition:all .25s ease;
 
 }
 
-.link.secondary{
-background:#9c0357;
-}
+.links a:hover{
 
-.link:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.6),
-0 0 25px rgba(230,19,22,.5);
+background:rgba(255,255,255,0.1);
 
 }
 
 /* -------------------------
-FOOTER
+RESPONSIVE
 ------------------------- */
 
-.notice{
+@media (max-width:600px){
 
-font-size:clamp(.9rem,2vw,1.2rem);
-
-padding:1.4rem;
-
-background:rgba(20,20,20,.65);
-
-border-radius:14px;
-
-border:1px solid rgba(230,19,22,.25);
-
-max-width:700px;
-
-margin-top:clamp(40px,6vh,70px);
-
+.container{
+padding:24px;
 }
 
-.notice strong{
-color:#ff4757;
+.links{
+gap:10px;
+}
+
 }
 
 </style>
-
 </head>
+
 
 <body>
 
-<header class="logo-wrap">
+<div class="container">
 
-<div class="logo-box">
+<div class="logo-mask sheen-once" id="logoMask">
 
 <img
-src="./Logos/CR3 Logo2026.webp"
+src="/images/logo.png"
 class="logo"
-alt="CR3 Tools Logo"
-draggable="false">
+draggable="false"
+alt="CR3 Logo"
+/>
 
-<div class="logo-mask">
+</div>
 
-<div class="logo-gloss"></div>
 
-<div class="logo-sheen"></div>
+<div class="links">
+
+<a href="https://github.com/Cr3Goblins">GitHub</a>
+
+<a href="https://cr3.shop">Shop</a>
+
+<a href="https://cr3labs.com">Labs</a>
 
 </div>
 
 </div>
 
-</header>
-
-<main>
-
-<nav class="links">
-
-<a href="https://cr3tools.bigcartel.com/" class="link">
-Big Cartel
-</a>
-
-<a href="./pages/contact.html" class="link">
-Contact Form
-</a>
-
-<a href="https://www.instagram.com/cr3tools" class="link">
-Instagram — @cr3tools
-</a>
-
-<a href="https://www.instagram.com/420greengoblins" class="link secondary">
-Instagram — Personal
-</a>
-
-</nav>
-
-</main>
-
-<footer class="notice">
-
-<strong>Site Under Construction</strong><br>
-Full website coming soon<br>
-<strong>DM us on our personal Instagram for tools</strong>
-
-</footer>
 
 <script>
 
 /* disable right click */
 
-document.querySelector(".logo-box")
-.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("contextmenu", e => e.preventDefault());
 
-/* subtle parallax */
+/* idle shimmer */
 
-document.addEventListener("mousemove", e => {
+const logoMask = document.getElementById("logoMask");
 
-const x = (e.clientX / window.innerWidth - .5) * 20;
-const y = (e.clientY / window.innerHeight - .5) * 20;
+function randomSheen(){
 
-document.body.style.backgroundPosition = `${50+x}% ${50+y}%`;
+const delay = 10000 + Math.random()*6000;
 
-});
+setTimeout(()=>{
+
+logoMask.classList.add("sheen-idle");
+
+setTimeout(()=>{
+logoMask.classList.remove("sheen-idle");
+randomSheen();
+},1500);
+
+},delay);
+
+}
+
+randomSheen();
 
 </script>
 
 </body>
-
 </html>
