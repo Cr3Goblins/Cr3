@@ -1,0 +1,5 @@
+- Project: CR3 Tools static website.
+- Host target: `https://cr3.pages.dev/`.
+- Theme: black/red/white CR3 brand, JetBrains Mono, compact direct-link layout.
+- Design reference: McMaster-Carr efficiency: direct paths and low-friction ordering.
+- Form provider: Formspree endpoint `https://formspree.io/f/xpzevpaa`.

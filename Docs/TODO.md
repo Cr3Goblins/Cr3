@@ -1,0 +1,1 @@
+- Verify `https://cr3.pages.dev/` after GitHub Pages/Cloudflare deployment finishes.

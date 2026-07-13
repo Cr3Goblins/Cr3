@@ -1,0 +1,12 @@
+- 2026-07-13: Rewrote home page into compact catalog/ordering flow.
+- 2026-07-13: Added shared `styles.css`.
+- 2026-07-13: Rebuilt contact page to match home page.
+- 2026-07-13: Removed unused PHP mail handler for static hosting.
+- 2026-07-13: Verified local HTML/CSS asset links.
+- 2026-07-13: Replaced hero text with large CR3 Logo2026 mark.
+- 2026-07-13: Replaced "What to send" panel with direct Big Cartel and Instagram URLs.
+- 2026-07-13: Removed small header logo/brand block.
+- 2026-07-13: Removed catalog search.
+- 2026-07-13: Added `Cr3Tools@proton.me` to direct links and contact links.
+- 2026-07-13: Removed top header/nav dead space.
+- 2026-07-13: Removed catalog finder block to simplify the page.

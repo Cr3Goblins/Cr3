@@ -1,345 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CR3 Tools — Coming Soon</title>
-
-<meta name="description" content="CR3 Tools - High quality tools coming soon">
-
-<style>
-
-/* -------------------------
-JETBRAINS MONO
-------------------------- */
-
-@font-face{
-font-family:"JetBrains Mono";
-src:url("./fonts/webfonts/JetBrainsMono-Regular.woff2") format("woff2");
-font-weight:400;
-font-style:normal;
-font-display:swap;
-}
-
-@font-face{
-font-family:"JetBrains Mono";
-src:url("./fonts/webfonts/JetBrainsMono-Bold.woff2") format("woff2");
-font-weight:700;
-font-style:normal;
-font-display:swap;
-}
-
-/* -------------------------
-RESET
-------------------------- */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-/* -------------------------
-BODY
-------------------------- */
-
-body{
-
-min-height:100vh;
-
-font-family:"JetBrains Mono", monospace;
-color:#e0e0e0;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:space-between;
-
-padding:clamp(1rem,3vw,3rem);
-
-background:#000;
-
-background-image:url("./backgrounds/TBG.webp");
-background-repeat:repeat;
-background-position:center;
-
-text-align:center;
-
-}
-
-/* -------------------------
-LOGO AREA
-------------------------- */
-
-.logo-wrap{
-margin-top:clamp(10px,3vh,40px);
-}
-
-/* container */
-
-.logo-box{
-
-position:relative;
-display:inline-block;
-
-width:clamp(200px,35vw,380px);
-
-}
-
-/* logo */
-
-.logo{
-
-width:100%;
-display:block;
-
-pointer-events:none;
-user-select:none;
--webkit-user-drag:none;
-
-filter:
-drop-shadow(0 0 18px rgba(230,19,22,.55))
-drop-shadow(0 8px 18px rgba(0,0,0,.55));
-
-}
-
-/* -------------------------
-MASK LAYER
-(this clips everything to logo)
-------------------------- */
-
-.logo-mask{
-
-position:absolute;
-inset:0;
-
--webkit-mask-image:url("./Logos/CR3 Logo2026.webp");
--webkit-mask-size:contain;
--webkit-mask-repeat:no-repeat;
--webkit-mask-position:center;
-
-mask-image:url("./Logos/CR3 Logo2026.webp");
-mask-size:contain;
-mask-repeat:no-repeat;
-mask-position:center;
-
-pointer-events:none;
-
-}
-
-/* -------------------------
-TOP ENAMEL GLOSS
-------------------------- */
-
-.logo-gloss{
-
-position:absolute;
-inset:0;
-
-background:linear-gradient(
-to bottom,
-rgba(255,255,255,.28) 0%,
-rgba(255,255,255,.15) 12%,
-rgba(255,255,255,.05) 22%,
-rgba(255,255,255,0) 40%
-);
-
-}
-
-/* -------------------------
-APPLE STYLE SHEEN
-------------------------- */
-
-.logo-sheen{
-
-position:absolute;
-
-top:0;
-bottom:0;
-width:35%;
-
-background:linear-gradient(
-110deg,
-rgba(255,255,255,0) 0%,
-rgba(255,255,255,.4) 40%,
-rgba(255,255,255,.9) 50%,
-rgba(255,255,255,.4) 60%,
-rgba(255,255,255,0) 100%
-);
-
-transform:translateX(-150%) skewX(-20deg);
-
-animation:sheenMove 1.2s ease-out 1;
-
-}
-
-/* replay on hover */
-
-.logo-box:hover .logo-sheen{
-animation:sheenMove 1.2s ease-out 1;
-}
-
-@keyframes sheenMove{
-
-0%{
-transform:translateX(-150%) skewX(-20deg);
-}
-
-100%{
-transform:translateX(260%) skewX(-20deg);
-}
-
-}
-
-/* -------------------------
-LINKS
-------------------------- */
-
-.links{
-
-width:100%;
-max-width:600px;
-
-display:flex;
-flex-direction:column;
-
-gap:1.2rem;
-
-margin-top:clamp(30px,5vh,60px);
-
-}
-
-.link{
-
-padding:1rem 1.6rem;
-border-radius:14px;
-
-text-decoration:none;
-color:white;
-
-font-size:clamp(1rem,2.5vw,1.4rem);
-font-weight:700;
-
-background:#e61316;
-
-border:1px solid rgba(255,255,255,.1);
-
-transition:transform .25s ease, box-shadow .25s ease;
-
-}
-
-.link.secondary{
-background:#9c0357;
-}
-
-.link:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.6),
-0 0 25px rgba(230,19,22,.5);
-
-}
-
-/* -------------------------
-FOOTER
-------------------------- */
-
-.notice{
-
-font-size:clamp(.9rem,2vw,1.2rem);
-
-padding:1.4rem;
-
-background:rgba(20,20,20,.65);
-
-border-radius:14px;
-
-border:1px solid rgba(230,19,22,.25);
-
-max-width:700px;
-
-margin-top:clamp(40px,6vh,70px);
-
-}
-
-.notice strong{
-color:#ff4757;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CR3 Tools | TDC Coated Tools</title>
+  <meta name="description" content="CR3 Tools supplies TDC coated tools, small-batch drops, custom requests, and direct support.">
+  <meta property="og:title" content="CR3 Tools">
+  <meta property="og:description" content="TDC coated tools, quick ordering, custom requests, and direct support.">
+  <meta property="og:image" content="https://cr3.pages.dev/Logos/OGLogo.webp">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#e61316">
+  <link rel="preload" href="./fonts/webfonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/webfonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="logo-wrap">
+  <main id="main" class="page-shell">
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <h1 id="intro-title" class="sr-only">CR3 Tools</h1>
+        <img class="hero-logo" src="./Logos/CR3 Logo2026.webp" alt="CR3 Tools - TDC Coated Tools" width="2048" height="1218">
+      </div>
 
-<div class="logo-box">
+      <div class="status-panel" aria-label="Shop status">
+        <dl>
+          <div>
+            <dt>Store</dt>
+            <dd>Big Cartel</dd>
+          </div>
+          <div>
+            <dt>Customs</dt>
+            <dd>Request by form</dd>
+          </div>
+          <div>
+            <dt>Updates</dt>
+            <dd>@cr3tools</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-<img
-src="./Logos/CR3 Logo2026.webp"
-class="logo"
-alt="CR3 Tools Logo"
-draggable="false">
+    <section class="quick-actions" aria-label="Quick actions">
+      <a class="action primary" href="https://cr3tools.bigcartel.com/">
+        <span>Shop Current Drops</span>
+        <strong>Big Cartel</strong>
+      </a>
+      <a class="action" href="./pages/contact.html">
+        <span>Need a Size or Quote?</span>
+        <strong>Contact CR3</strong>
+      </a>
+      <a class="action" href="https://www.instagram.com/cr3tools">
+        <span>Latest Work</span>
+        <strong>@cr3tools</strong>
+      </a>
+    </section>
 
-<div class="logo-mask">
+    <section id="ordering" class="info-grid" aria-label="Ordering information">
+      <article>
+        <h2>Order path</h2>
+        <ol class="steps">
+          <li>Check the active Big Cartel drop.</li>
+          <li>Use the contact form for sizes or quotes not listed.</li>
+          <li>Follow Instagram for the next batch and availability updates.</li>
+        </ol>
+      </article>
+      <article>
+        <h2>Direct links</h2>
+        <div class="plain-links">
+          <a href="https://cr3tools.bigcartel.com/">
+            <span class="link-icon">BC</span>
+            <span>https://cr3tools.bigcartel.com/</span>
+          </a>
+          <a href="https://www.instagram.com/cr3tools">
+            <span class="link-icon">IG</span>
+            <span>https://www.instagram.com/cr3tools</span>
+          </a>
+          <a href="https://www.instagram.com/420greengoblins">
+            <span class="link-icon">IG</span>
+            <span>https://www.instagram.com/420greengoblins</span>
+          </a>
+          <a href="mailto:Cr3Tools@proton.me">
+            <span class="link-icon">EM</span>
+            <span>Cr3Tools@proton.me</span>
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
 
-<div class="logo-gloss"></div>
-
-<div class="logo-sheen"></div>
-
-</div>
-
-</div>
-
-</header>
-
-<main>
-
-<nav class="links">
-
-<a href="https://cr3tools.bigcartel.com/" class="link">
-Big Cartel
-</a>
-
-<a href="./pages/contact.html" class="link">
-Contact Form
-</a>
-
-<a href="https://www.instagram.com/cr3tools" class="link">
-Instagram — @cr3tools
-</a>
-
-<a href="https://www.instagram.com/420greengoblins" class="link secondary">
-Instagram — Personal
-</a>
-
-</nav>
-
-</main>
-
-<footer class="notice">
-
-<strong>Site Under Construction</strong><br>
-Full website coming soon<br>
-<strong>DM us on our personal Instagram for tools</strong>
-
-</footer>
-
-<script>
-
-/* disable right click */
-
-document.querySelector(".logo-box")
-.addEventListener("contextmenu", e => e.preventDefault());
-
-</script>
+  <footer class="site-footer">
+    <span>CR3 Tools</span>
+    <span>TDC Coated Tools</span>
+    <a href="./pages/contact.html">Contact</a>
+  </footer>
 
 </body>
-
 </html>

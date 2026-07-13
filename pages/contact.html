@@ -1,123 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cr3 Tools</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            text-align: center;
-            color: #fff;
-            background: #000 url('') center center / cover repeat fixed;
-            padding: 20px;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-top: 0;
-            color: #fff;
-            background: #e61316;
-            display: inline-block;
-            padding: 5px 10px;
-            text-shadow: 2px 2px black;
-        }
-
-        form {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        label {
-            width: 100%;
-            text-align: left;
-            margin-top: 10px;
-            color: #fff;
-            background: #e61316;
-            display: inline-block;
-            padding: 2px 5px;
-            text-shadow: 1px 1px black;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        textarea {
-            height: 200px;
-        }
-
-        input[type="submit"] {
-            width: auto;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #e61316;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #cc1113;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            form {
-                width: 90%;
-            }
-
-            input, textarea {
-                padding: 8px;
-            }
-
-            input[type="submit"] {
-                width: 100%;
-                padding: 12px;
-            }
-
-            textarea {
-                height: 150px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact CR3 Tools</title>
+  <meta name="description" content="Contact CR3 Tools for TDC coated tool questions, quotes, order support, and custom requests.">
+  <meta name="theme-color" content="#e61316">
+  <link rel="preload" href="../fonts/webfonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/webfonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h1>Contact Us</h1>
-    <form method="POST" action="https://formspree.io/f/xpzevpaa">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+  <main id="main" class="page-shell contact-layout">
+    <section class="contact-panel" aria-labelledby="contact-title">
+      <p class="eyebrow">Contact</p>
+      <h1 id="contact-title">Send the exact request.</h1>
+      <p class="lede">For fastest help, include the tool type, size, material, quantity, and timing. Use Instagram for quick updates or the form for quotes and support.</p>
 
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required>
+      <div class="contact-list" aria-label="Other contact links">
+        <a href="mailto:Cr3Tools@proton.me">Email: Cr3Tools@proton.me</a>
+        <a href="https://cr3tools.bigcartel.com/">Shop active drops</a>
+        <a href="https://www.instagram.com/cr3tools">Instagram: @cr3tools</a>
+        <a href="https://www.instagram.com/420greengoblins">Backup DM: @420greengoblins</a>
+      </div>
+    </section>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
+    <section class="contact-panel" aria-labelledby="form-title">
+      <h2 id="form-title">Request form</h2>
+      <form class="contact-form" method="POST" action="https://formspree.io/f/xpzevpaa">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
 
-        <input type="submit" value="Submit">
-    </form>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tool type, size, quantity, material, and timing." required></textarea>
+        </div>
+
+        <button class="submit-button" type="submit">Send Request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>CR3 Tools</span>
+    <span>TDC Coated Tools</span>
+    <a href="../index.html">Home</a>
+  </footer>
 </body>
 </html>
