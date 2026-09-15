@@ -16,3 +16,4 @@
 - 2026-09-15: Fixed price-list logo proportions and made the logo span the page header.
 - 2026-09-15: Added expandable product galleries for 16 priced tools using 38 optimized WebP photos.
 - 2026-09-15: Added Cleaver Carving Knife ($80) and Engraving Pen ($50) from live Big Cartel pricing.
+- 2026-09-15: Linked the Venmo payment row to `https://venmo.com/u/cr3Broker`.
