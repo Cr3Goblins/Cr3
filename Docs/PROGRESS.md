@@ -19,3 +19,5 @@
 - 2026-09-15: Linked the Venmo payment row to `https://venmo.com/u/cr3Broker`.
 - 2026-09-15: Linked the Cash App payment row to `https://cash.app/$NSmatrix`.
 - 2026-09-15: Removed the duplicate Price List URL from the home-page Direct Links panel.
+- 2026-09-15: Created silent 18-second landscape and vertical website previews from live-site screenshots; exports are stored in `C:\Users\Admin\Documents\Cr3\Website Preview`.
+- 2026-09-15: Added a full-screen photo viewer to price-list galleries with previous/next and keyboard controls.
