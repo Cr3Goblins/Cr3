@@ -10,3 +10,9 @@
 - 2026-07-13: Added `Cr3Tools@proton.me` to direct links and contact links.
 - 2026-07-13: Removed top header/nav dead space.
 - 2026-07-13: Removed catalog finder block to simplify the page.
+- 2026-09-15: Added right-side Price List link box.
+- 2026-09-15: Added vectorized HTML price-list page from supplied 2026 JPG.
+- 2026-09-15: Updated home/contact price-list links to point to `pages/price-list.html`.
+- 2026-09-15: Fixed price-list logo proportions and made the logo span the page header.
+- 2026-09-15: Added expandable product galleries for 16 priced tools using 38 optimized WebP photos.
+- 2026-09-15: Added Cleaver Carving Knife ($80) and Engraving Pen ($50) from live Big Cartel pricing.

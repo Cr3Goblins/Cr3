@@ -1,1 +1,3 @@
 - Verify `https://cr3.pages.dev/` after GitHub Pages/Cloudflare deployment finishes.
+- Confirm transcribed prices against source image before public reliance.
+- Add photos for price-list entries whose supplied archive folders are empty.
