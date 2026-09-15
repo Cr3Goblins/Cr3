@@ -21,3 +21,4 @@
 - 2026-09-15: Removed the duplicate Price List URL from the home-page Direct Links panel.
 - 2026-09-15: Created silent 18-second landscape and vertical website previews from live-site screenshots; exports are stored in `C:\Users\Admin\Documents\Cr3\Website Preview`.
 - 2026-09-15: Added a full-screen photo viewer to price-list galleries with previous/next and keyboard controls.
+- 2026-09-15: Removed two redundant Large Diamond Shears photos and reduced the gallery count to four.
